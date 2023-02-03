@@ -16,6 +16,8 @@
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.262.0",
     "@aws-sdk/lib-dynamodb": "^3.262.0",
+    "@aws-sdk/smithy-client": "^3.261.0",
+    "@aws-sdk/types": "^3.257.0",
     "@eventual/testing": "^0.15.2",
     "esbuild": "^0.16.14",
     "jest": "^29",
