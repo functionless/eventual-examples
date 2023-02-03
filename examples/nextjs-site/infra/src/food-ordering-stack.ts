@@ -44,7 +44,7 @@ export class FoodOrderingStack extends Stack {
     });
 
     this.service.api.handlers.forEach((h) => table.grantReadWriteData(h));
-    table.grantReadWriteData(this.service);
+    table.grantReadWriteData(this.service.activities.worker);
 
     new CfnOutput(this, "nextjs-site-api-endpoint", {
       exportName: "nextjs-site-api-endpoint",
