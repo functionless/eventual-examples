@@ -11,7 +11,7 @@
     "hotswap": "tsc -b && pnpm --filter infra run deploy --hotswap"
   },
   "devDependencies": {
-    "@eventual/cli": "^0.15.1",
+    "@eventual/cli": "^0.15.2",
     "@tsconfig/node16": "^1",
     "@types/jest": "^29",
     "@types/node": "^16",

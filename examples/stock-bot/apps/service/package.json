@@ -9,13 +9,13 @@
     "eventual": "eventual"
   },
   "dependencies": {
-    "@eventual/core": "^0.15.1",
+    "@eventual/core": "^0.15.2",
     "zod": "^3",
     "zod-class": "^0.0.2"
   },
   "devDependencies": {
-    "@eventual/cli": "^0.15.1",
-    "@eventual/compiler": "^0.15.1",
+    "@eventual/cli": "^0.15.2",
+    "@eventual/compiler": "^0.15.2",
     "@types/aws-lambda": "^8.10.108",
     "@types/jest": "^29",
     "@types/node": "^16",
