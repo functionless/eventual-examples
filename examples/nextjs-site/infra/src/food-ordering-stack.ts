@@ -43,7 +43,7 @@ export class FoodOrderingStack extends Stack {
       },
     });
 
-    table.grantReadWriteData(this.service.api.handler);
+    this.service.api.handlers.forEach((h) => table.grantReadWriteData(h));
     table.grantReadWriteData(this.service);
 
     new CfnOutput(this, "nextjs-site-api-endpoint", {

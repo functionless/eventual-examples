@@ -19,7 +19,9 @@ export class OrderClient {
   /**
    * Create an order with the {@link OrderStatus} CREATED and return it's ID.
    */
-  async createOrder(orderRequest: CreateOrderRequest): Promise<{ orderId: string }> {
+  async createOrder(
+    orderRequest: CreateOrderRequest
+  ): Promise<{ orderId: string }> {
     const order: Order = {
       ...orderRequest,
       id: ulid(),
@@ -57,7 +59,7 @@ export class OrderClient {
       new QueryCommand({
         TableName: this.props.tableName,
         IndexName: OrderRecord.userTimeIndex,
-        KeyConditionExpression: "pk=:pk and begins_with(userId, :userId)",
+        KeyConditionExpression: "pk=:pk and begins_with(user_time, :userId)",
         ExpressionAttributeValues: {
           ":userId": userId,
           ":pk": OrderRecord.partitionKey,
