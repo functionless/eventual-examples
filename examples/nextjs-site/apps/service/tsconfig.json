@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../packages/events"
+    },
+    {
+      "path": "../../packages/core"
+    }
+  ],
+  "compilerOptions": {
+    "lib": ["DOM"],
+    "outDir": "lib",
+    "rootDir": "src",
+    "target": "ES2021"
+  }
+}

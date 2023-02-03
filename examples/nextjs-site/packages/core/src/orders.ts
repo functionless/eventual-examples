@@ -1,0 +1,24 @@
+export type OrderStatus =
+  | "CREATED"
+  | "ACCEPTED"
+  | "PREPARING"
+  | "READY_FOR_PICKUP"
+  | "IN_ROUTE"
+  | "DELIVERED";
+
+export interface Order {
+  id: string;
+  userId: string;
+  timestamp: string;
+  address: string;
+  store: string;
+  items: Item[];
+  status: OrderStatus;
+}
+
+export interface Item {
+  id: string;
+  name: string;
+  quantity: string;
+  details: string;
+}
