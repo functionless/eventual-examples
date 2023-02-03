@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "examples/stock-bot"
+    },
+    {
+      "path": "examples/lambda-test-runner"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.husky
+.turbo
+lib/
+node_modules
+*.tsbuildinfo
+*.tgz
+cdk.out
+.eventual
+.DS_Store
