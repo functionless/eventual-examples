@@ -23,3 +23,8 @@ export interface Item {
   quantity: string;
   details: string;
 }
+
+export type CreateOrderRequest = Omit<Order, "id" | "status" | "timestamp">;
+export interface CreateOrderResult {
+  orderId: string;
+}

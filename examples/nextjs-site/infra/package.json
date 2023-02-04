@@ -7,14 +7,14 @@
     "test": "echo no-op"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigatewayv2-alpha": "^2.50.0-alpha.0",
-    "@aws-cdk/aws-apigatewayv2-authorizers-alpha": "^2.50.0-alpha.0",
-    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.50.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.63.2-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha": "2.63.2-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.63.2-alpha.0",
     "@eventual/aws-cdk": "^0.15.2",
     "@nextjs-site/service": "workspace:^",
-    "aws-cdk": "^2.50.0",
-    "aws-cdk-lib": "^2.50.0",
-    "constructs": "^10",
+    "aws-cdk": "^2.63.2",
+    "aws-cdk-lib": "^2.63.2",
+    "constructs": "^10.1.240",
     "esbuild": "^0.16.14"
   },
   "devDependencies": {

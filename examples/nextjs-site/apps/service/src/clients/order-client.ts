@@ -5,7 +5,12 @@ import {
   QueryCommand,
   UpdateCommand,
 } from "@aws-sdk/lib-dynamodb";
-import { Order, OrderStatus } from "@nextjs-site/core";
+import {
+  CreateOrderRequest,
+  CreateOrderResult,
+  Order,
+  OrderStatus,
+} from "@nextjs-site/core";
 import { ulid } from "ulidx";
 
 export interface OrderClientProps {
@@ -21,7 +26,7 @@ export class OrderClient {
    */
   async createOrder(
     orderRequest: CreateOrderRequest
-  ): Promise<{ orderId: string }> {
+  ): Promise<CreateOrderResult> {
     const order: Order = {
       ...orderRequest,
       id: ulid(),
@@ -60,6 +65,8 @@ export class OrderClient {
         TableName: this.props.tableName,
         IndexName: OrderRecord.userTimeIndex,
         KeyConditionExpression: "pk=:pk and begins_with(user_time, :userId)",
+        // newest first
+        ScanIndexForward: false,
         ExpressionAttributeValues: {
           ":userId": userId,
           ":pk": OrderRecord.partitionKey,
@@ -111,8 +118,6 @@ export class OrderClient {
     return item.Item ? orderFromRecord(item.Item as OrderRecord) : undefined;
   }
 }
-
-export type CreateOrderRequest = Omit<Order, "id" | "status" | "timestamp">;
 
 interface OrderRecord extends Order {
   pk: string;

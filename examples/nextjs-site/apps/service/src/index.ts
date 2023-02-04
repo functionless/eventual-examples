@@ -4,14 +4,15 @@ import {
   activity,
   api,
   ApiResponse,
-  signal,
-  workflow,
-  event,
+  Body,
   condition,
   duration,
+  event,
+  signal,
+  workflow,
 } from "@eventual/core";
-import { OrderStatus } from "@nextjs-site/core";
-import { CreateOrderRequest, OrderClient } from "./clients/order-client.js";
+import { CreateOrderRequest, OrderStatus } from "@nextjs-site/core";
+import { OrderClient } from "./clients/order-client.js";
 
 const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 
@@ -20,10 +21,35 @@ const client = new OrderClient({
   tableName: process.env.TABLE_NAME ?? "",
 });
 
+// for testing
+// TODO: support
+const cors = {
+  "Access-Control-Allow-Origin": "*",
+};
+
+class CorsInjectedApiResponse extends ApiResponse {
+  constructor(
+    body: Body | undefined,
+    init: {
+      status: number;
+      statusText?: string;
+      headers?: Record<string, string> | Headers;
+    }
+  ) {
+    super(body, {
+      ...init,
+      headers: {
+        ...cors,
+        ...init.headers,
+      },
+    });
+  }
+}
+
 api.post("/orders", async (request) => {
   const order = await request.json();
   if (!isValidOrderRequest(order)) {
-    return new ApiResponse("invalid order", { status: 400 });
+    return new CorsInjectedApiResponse("invalid order", { status: 400 });
   }
   console.log(JSON.stringify(order));
   const createOrderResult = await client.createOrder(order);
@@ -33,35 +59,47 @@ api.post("/orders", async (request) => {
     executionName: createOrderResult.orderId,
   });
 
-  return new ApiResponse(JSON.stringify(createOrderResult), { status: 200 });
+  return new CorsInjectedApiResponse(JSON.stringify(createOrderResult), {
+    status: 200,
+    headers: {
+      ...cors,
+    },
+  });
 });
 
 api.get("/orders/:orderId", async (request) => {
   const orderId = request.params?.orderId;
   if (!orderId) {
-    return new ApiResponse("order id must be present", { status: 400 });
+    return new CorsInjectedApiResponse("order id must be present", {
+      status: 400,
+    });
   }
 
   const order = await client.getOrder(orderId);
 
   if (!order) {
-    return new ApiResponse("Order not found", { status: 401 });
+    return new CorsInjectedApiResponse("Order not found", { status: 401 });
   }
 
-  return new ApiResponse(JSON.stringify(order), { status: 200 });
+  return new CorsInjectedApiResponse(JSON.stringify(order), { status: 200 });
 });
 
 api.get("/orders", async (request) => {
   const userId = request.query?.userId;
   if (!userId || typeof userId !== "string") {
-    return new ApiResponse("List API requires a single user id, for now", {
-      status: 400,
-    });
+    return new CorsInjectedApiResponse(
+      "List API requires a single user id, for now",
+      {
+        status: 400,
+      }
+    );
   }
 
   const orders = await client.getOrders(userId);
 
-  return new ApiResponse(JSON.stringify({ orders: orders }), { status: 200 });
+  return new CorsInjectedApiResponse(JSON.stringify({ orders: orders }), {
+    status: 200,
+  });
 });
 
 export interface SetOrderStatusRequest {
@@ -71,12 +109,14 @@ export interface SetOrderStatusRequest {
 api.put("/orders/:orderId/status", async (request) => {
   const orderId = request.params?.orderId;
   if (!orderId) {
-    return new ApiResponse("order id must be present", { status: 400 });
+    return new CorsInjectedApiResponse("order id must be present", {
+      status: 400,
+    });
   }
 
   const body = await request.json();
   if (!isValidSetOrderStatusRequest(body)) {
-    return new ApiResponse("invalid request body", { status: 400 });
+    return new CorsInjectedApiResponse("invalid request body", { status: 400 });
   }
 
   await client.updateOrderStatus(orderId, body.status);
@@ -84,7 +124,7 @@ api.put("/orders/:orderId/status", async (request) => {
   // TODO: emit event on order update
 
   // accepted
-  return new ApiResponse(undefined, { status: 202 });
+  return new CorsInjectedApiResponse(undefined, { status: 202 });
 });
 
 /**
