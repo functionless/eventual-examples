@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Order } from "@nextjs-site/core";
 import Layout from "@/layout";
 import { getOrders } from "@/api";
@@ -6,6 +6,8 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
+import { UserContext } from "@/user-context";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#1A2027",
@@ -16,16 +18,19 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const { user } = useContext(UserContext);
   useEffect(() => {
-    getOrders("sam").then((orders) => setOrders(orders));
-  }, []);
+    if (user) {
+      getOrders(user.getUsername()).then((orders) => setOrders(orders));
+    }
+  }, [user]);
 
   return (
-    <Layout>
+    <Layout mode="authed">
       <div>
         <Stack spacing={1}>
           {orders.map((o) => (
-            <a href={`/track?orderId=${o.id}`}>
+            <Link href={`/track?orderId=${o.id}`} key={o.id}>
               <Item>
                 <Grid container>
                   <Grid item xs={10}>
@@ -36,7 +41,7 @@ export default function Home() {
                   </Grid>
                 </Grid>
               </Item>
-            </a>
+            </Link>
           ))}
         </Stack>
       </div>

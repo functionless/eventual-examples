@@ -6,6 +6,7 @@ import {
   BillingMode,
   ProjectionType,
 } from "aws-cdk-lib/aws-dynamodb";
+import { UserPool } from "aws-cdk-lib/aws-cognito";
 import { Service } from "@eventual/aws-cdk";
 
 export interface FoodOrderingStackProps extends StackProps {}
@@ -35,6 +36,15 @@ export class FoodOrderingStack extends Stack {
       projectionType: ProjectionType.ALL,
     });
 
+    const userPool = new UserPool(this, "users", {
+      selfSignUpEnabled: true,
+      autoVerify: { email: true },
+    });
+    const appClient = userPool.addClient("website", {
+      disableOAuth: true,
+      authFlows: { userPassword: true },
+    });
+
     this.service = new Service(this, "nextjs-site", {
       name: "nextjs-site",
       entry: require.resolve("@nextjs-site/service"),
@@ -54,6 +64,16 @@ export class FoodOrderingStack extends Stack {
     new CfnOutput(this, "nextjs-site-event-bus-arn", {
       exportName: "nextjs-site-event-bus-arn",
       value: this.service.events.bus.eventBusArn,
+    });
+
+    new CfnOutput(this, "nextjs-site-user-pool-id", {
+      exportName: "nextjs-site-user-pool-id",
+      value: userPool.userPoolId,
+    });
+
+    new CfnOutput(this, "nextjs-site-user-app-client-id", {
+      exportName: "nextjs-site-user-app-client-id",
+      value: appClient.userPoolClientId,
     });
   }
 }

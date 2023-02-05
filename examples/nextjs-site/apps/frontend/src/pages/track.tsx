@@ -43,7 +43,7 @@ export default function Track() {
   }, [order]);
 
   return (
-    <Layout>
+    <Layout mode="authed">
       <div>
         {order ? (
           <Grid container>
