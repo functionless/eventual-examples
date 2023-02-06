@@ -6,10 +6,32 @@ import {
   UserData,
 } from "amazon-cognito-identity-js";
 
-const userPool = new CognitoUserPool({
-  UserPoolId: "us-east-1_Pl1wNTMfV", // Your user pool id here
-  ClientId: "a4f5eusm699it63gfa5r2g7lp", // Your client id here
-});
+let userPoolId = process.env.NEXT_PUBLIC_USER_POOL_ID;
+let userClientId = process.env.NEXT_PUBLIC_USER_POLL_CLIENT_ID;
+
+console.log(userPoolId, userClientId);
+
+export function overrideUserPoolIds(
+  _userPoolId: string | null,
+  _userClientId: string | null
+) {
+  userPoolId = _userPoolId ?? userPoolId;
+  userClientId = _userClientId ?? userClientId;
+}
+
+let _userPool: CognitoUserPool | undefined;
+function userPool() {
+  if (!_userPool) {
+    if (!userPoolId || !userClientId) {
+      throw new Error("");
+    }
+    _userPool = new CognitoUserPool({
+      UserPoolId: userPoolId,
+      ClientId: userClientId,
+    });
+  }
+  return _userPool!;
+}
 
 export async function signUp(
   userName: string,
@@ -24,7 +46,7 @@ export async function signUp(
   ];
 
   return new Promise((resolve, reject) => {
-    userPool.signUp(
+    userPool().signUp(
       userName,
       password,
       attributeList,
@@ -40,7 +62,7 @@ export async function signUp(
 }
 
 export async function signIn(userName: string, password: string) {
-  const user = new CognitoUser({ Pool: userPool, Username: userName });
+  const user = new CognitoUser({ Pool: userPool(), Username: userName });
   user.setAuthenticationFlowType("USER_PASSWORD_AUTH");
   return new Promise<CognitoUser>((resolve, reject) => {
     user.authenticateUser(
@@ -56,7 +78,7 @@ export async function signIn(userName: string, password: string) {
 }
 
 export function currentUser() {
-  return userPool.getCurrentUser() ?? undefined;
+  return userPool().getCurrentUser() ?? undefined;
 }
 
 export async function getCurrentUserData() {

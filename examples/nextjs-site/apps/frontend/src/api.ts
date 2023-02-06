@@ -4,7 +4,11 @@ import {
   Order,
 } from "@nextjs-site/core";
 
-const apiDomain = "https://ajxh10hwnd.execute-api.us-east-1.amazonaws.com";
+let apiDomain: string | undefined = process.env.NEXT_PUBLIC_EVENTUAL_API_DOMAIN;
+
+export function overrideApiDomain(domain: string) {
+  apiDomain = domain;
+}
 
 export async function getOrders(user: string) {
   const r = await fetch(`${apiDomain}/orders?userId=${user}`, {

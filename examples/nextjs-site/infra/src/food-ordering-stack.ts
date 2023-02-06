@@ -6,13 +6,15 @@ import {
   BillingMode,
   ProjectionType,
 } from "aws-cdk-lib/aws-dynamodb";
-import { UserPool } from "aws-cdk-lib/aws-cognito";
+import { IUserPool, IUserPoolClient, UserPool } from "aws-cdk-lib/aws-cognito";
 import { Service } from "@eventual/aws-cdk";
 
 export interface FoodOrderingStackProps extends StackProps {}
 
 export class FoodOrderingStack extends Stack {
   public readonly service: Service;
+  public readonly userPool: IUserPool;
+  public readonly userPoolClient: IUserPoolClient;
 
   constructor(scope: Construct, id: string, props?: FoodOrderingStackProps) {
     super(scope, id, props);
@@ -36,11 +38,12 @@ export class FoodOrderingStack extends Stack {
       projectionType: ProjectionType.ALL,
     });
 
-    const userPool = new UserPool(this, "users", {
+    this.userPool = new UserPool(this, "users", {
       selfSignUpEnabled: true,
       autoVerify: { email: true },
     });
-    const appClient = userPool.addClient("website", {
+
+    this.userPoolClient = this.userPool.addClient("website", {
       disableOAuth: true,
       authFlows: { userPassword: true },
     });
@@ -68,12 +71,12 @@ export class FoodOrderingStack extends Stack {
 
     new CfnOutput(this, "nextjs-site-user-pool-id", {
       exportName: "nextjs-site-user-pool-id",
-      value: userPool.userPoolId,
+      value: this.userPool.userPoolId,
     });
 
     new CfnOutput(this, "nextjs-site-user-app-client-id", {
       exportName: "nextjs-site-user-app-client-id",
-      value: appClient.userPoolClientId,
+      value: this.userPoolClient.userPoolClientId,
     });
   }
 }
