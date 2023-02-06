@@ -32,7 +32,7 @@ export default function Layout({
       router.push("/");
       return;
     }
-  }, [mode, user]);
+  }, [mode, user, router]);
 
   return (
     <>

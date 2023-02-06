@@ -19,7 +19,7 @@ export default function Home() {
         router.push("/track?orderId=" + orderId);
       });
     }
-  }, [user]);
+  }, [user, router]);
 
   return (
     <Layout mode="authed">

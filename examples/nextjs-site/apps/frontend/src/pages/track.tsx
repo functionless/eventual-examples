@@ -66,7 +66,7 @@ export default function Track() {
                     Items:
                     <Stack>
                       {order.items.map((i) => (
-                        <div>
+                        <div key={i.name}>
                           {i.name} x {i.quantity}
                         </div>
                       ))}

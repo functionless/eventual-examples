@@ -16,7 +16,7 @@ export default function Home() {
     if (userName && email && password) {
       signUp(userName, email, password).then(() => setUser?.(currentUser()));
     }
-  }, [userName, email, password]);
+  }, [userName, email, password, setUser]);
 
   function changeUser(event: ChangeEvent<HTMLInputElement>) {
     setUserName(event.target.value);
