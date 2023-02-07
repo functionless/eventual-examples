@@ -12,6 +12,7 @@ import {
   workflow,
 } from "@eventual/core";
 import { CreateOrderRequest, OrderStatus } from "@nextjs-site/core";
+import { validateUser, validateUserRequest } from "./clients/auth.js";
 import { OrderClient } from "./clients/order-client.js";
 
 const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient({}));
@@ -47,12 +48,29 @@ class CorsInjectedApiResponse extends ApiResponse {
 }
 
 api.post("/orders", async (request) => {
+  let user;
+  try {
+    user = await validateUserRequest(request);
+  } catch (err) {
+    if (err instanceof Error) {
+      return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
+        status: 401,
+      });
+    }
+
+    throw err;
+  }
+
   const order = await request.json();
   if (!isValidOrderRequest(order)) {
     return new CorsInjectedApiResponse("invalid order", { status: 400 });
   }
   console.log(JSON.stringify(order));
-  const createOrderResult = await client.createOrder(order);
+  const createOrderResult = await client.createOrder({
+    ...order,
+    // only create users for the current user
+    userId: user.username,
+  });
 
   await orderWorkflow.startExecution({
     input: { orderId: createOrderResult.orderId },
@@ -68,6 +86,17 @@ api.post("/orders", async (request) => {
 });
 
 api.get("/orders/:orderId", async (request) => {
+  try {
+    await validateUserRequest(request);
+  } catch (err) {
+    if (err instanceof Error) {
+      return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
+        status: 401,
+      });
+    }
+
+    throw err;
+  }
   const orderId = request.params?.orderId;
   if (!orderId) {
     return new CorsInjectedApiResponse("order id must be present", {
@@ -85,17 +114,20 @@ api.get("/orders/:orderId", async (request) => {
 });
 
 api.get("/orders", async (request) => {
-  const userId = request.query?.userId;
-  if (!userId || typeof userId !== "string") {
-    return new CorsInjectedApiResponse(
-      "List API requires a single user id, for now",
-      {
-        status: 400,
-      }
-    );
+  let user;
+  try {
+    user = await validateUserRequest(request);
+  } catch (err) {
+    if (err instanceof Error) {
+      return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
+        status: 401,
+      });
+    }
+
+    throw err;
   }
 
-  const orders = await client.getOrders(userId);
+  const orders = await client.getOrders(user.username);
 
   return new CorsInjectedApiResponse(JSON.stringify({ orders: orders }), {
     status: 200,
@@ -107,6 +139,18 @@ export interface SetOrderStatusRequest {
 }
 
 api.put("/orders/:orderId/status", async (request) => {
+  let user;
+  try {
+    user = await validateUserRequest(request);
+  } catch (err) {
+    if (err instanceof Error) {
+      return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
+        status: 401,
+      });
+    }
+
+    throw err;
+  }
   const orderId = request.params?.orderId;
   if (!orderId) {
     return new CorsInjectedApiResponse("order id must be present", {
@@ -117,6 +161,13 @@ api.put("/orders/:orderId/status", async (request) => {
   const body = await request.json();
   if (!isValidSetOrderStatusRequest(body)) {
     return new CorsInjectedApiResponse("invalid request body", { status: 400 });
+  }
+
+  // ensure the current user is authorized modify this order.
+  const order = await client.getOrder(orderId);
+
+  if (order?.userId !== user.username) {
+    return new CorsInjectedApiResponse("Order does not exist", { status: 404 });
   }
 
   await client.updateOrderStatus(orderId, body.status);
