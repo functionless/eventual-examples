@@ -8,7 +8,8 @@
     "watch": "tsc -b -w",
     "synth": "tsc -b && pnpm --filter infra synth",
     "deploy": "tsc -b && pnpm --filter infra run deploy",
-    "hotswap": "tsc -b && pnpm --filter infra run deploy --hotswap"
+    "hotswap": "tsc -b && pnpm --filter infra run deploy --hotswap",
+    "publish:cf": "./scripts/publish-cf.sh"
   },
   "devDependencies": {
     "@eventual/cli": "^0.15.2",

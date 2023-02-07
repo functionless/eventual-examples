@@ -4,12 +4,17 @@
 
 ### Deploying to CloudFlare
 
-> npx wrangler login
-> npx wrangler pages project create [pages project name]
-> pnpm --filter frontend run export
-> npx wrangler pages publish apps/frontend/out
+```sh
+# as needed
+$ npx wrangler login
 
-Visit https://[pages project name].pages.dev/
+# first time
+$ npx wrangler pages project create [pages project name]
 
-### Deploying to S3/CloudFront
+# each time
+$ pnpm run publish:cf
+```
 
+`pnpm run publish:cf` will build, export, and then publish the project to cloudflare pages.
+
+Visit `https://[pages project name].pages.dev/`
