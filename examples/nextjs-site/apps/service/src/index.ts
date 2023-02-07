@@ -78,7 +78,7 @@ api.get("/orders/:orderId", async (request) => {
   const order = await client.getOrder(orderId);
 
   if (!order) {
-    return new CorsInjectedApiResponse("Order not found", { status: 401 });
+    return new CorsInjectedApiResponse("Order not found", { status: 404 });
   }
 
   return new CorsInjectedApiResponse(JSON.stringify(order), { status: 200 });
