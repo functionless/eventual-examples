@@ -16,8 +16,8 @@ import { useContext, useState } from "react";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { UserContext } from "./user-context";
 import { signOut } from "./auth";
+import useUser from "./use-user";
 
 const pages = [
   { name: "Orders", link: "/" },
@@ -26,7 +26,7 @@ const pages = [
 
 export function _Menu() {
   const router = useRouter();
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useUser({});
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 

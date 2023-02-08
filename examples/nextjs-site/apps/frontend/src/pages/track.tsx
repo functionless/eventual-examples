@@ -1,5 +1,6 @@
 import { getOrder } from "@/api";
 import Layout from "@/layout";
+import useUser from "@/use-user";
 import { useInterval } from "@/utils";
 import Check from "@mui/icons-material/Check";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
@@ -27,12 +28,15 @@ export default function Track() {
 
   const [pollDelay, setPollDelay] = useState<null | number>(1000);
   const [order, setOrder] = useState<Order | undefined>(undefined);
+  const { session } = useUser({ redirectTo: "/login" });
 
   const get = useCallback(() => {
-    if (orderId && typeof orderId === "string") {
-      getOrder(orderId).then((order) => setOrder(order));
+    if (session && orderId && typeof orderId === "string") {
+      getOrder(orderId, session.getAccessToken().getJwtToken()).then((order) =>
+        setOrder(order)
+      );
     }
-  }, [orderId]);
+  }, [orderId, session]);
 
   useInterval(get, pollDelay);
 
@@ -43,7 +47,7 @@ export default function Track() {
   }, [order]);
 
   return (
-    <Layout mode="authed">
+    <Layout>
       <div>
         {order ? (
           <Grid container>

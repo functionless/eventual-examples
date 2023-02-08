@@ -12,7 +12,7 @@ import {
   workflow,
 } from "@eventual/core";
 import { CreateOrderRequest, OrderStatus } from "@nextjs-site/core";
-import { validateUser, validateUserRequest } from "./clients/auth.js";
+import { validateUserRequest } from "./clients/auth.js";
 import { OrderClient } from "./clients/order-client.js";
 
 const dynamo = DynamoDBDocumentClient.from(new DynamoDBClient({}));
@@ -26,6 +26,7 @@ const client = new OrderClient({
 // TODO: support
 const cors = {
   "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Authorization",
 };
 
 class CorsInjectedApiResponse extends ApiResponse {
@@ -47,11 +48,16 @@ class CorsInjectedApiResponse extends ApiResponse {
   }
 }
 
+api.options("*", async () => {
+  return new CorsInjectedApiResponse(undefined, { status: 200 });
+});
+
 api.post("/orders", async (request) => {
   let user;
   try {
     user = await validateUserRequest(request);
   } catch (err) {
+    console.error(err);
     if (err instanceof Error) {
       return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
         status: 401,
@@ -79,9 +85,6 @@ api.post("/orders", async (request) => {
 
   return new CorsInjectedApiResponse(JSON.stringify(createOrderResult), {
     status: 200,
-    headers: {
-      ...cors,
-    },
   });
 });
 
@@ -90,6 +93,7 @@ api.get("/orders/:orderId", async (request) => {
     await validateUserRequest(request);
   } catch (err) {
     if (err instanceof Error) {
+      console.error(err);
       return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
         status: 401,
       });
@@ -118,6 +122,7 @@ api.get("/orders", async (request) => {
   try {
     user = await validateUserRequest(request);
   } catch (err) {
+    console.error(err);
     if (err instanceof Error) {
       return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
         status: 401,
@@ -143,6 +148,7 @@ api.put("/orders/:orderId/status", async (request) => {
   try {
     user = await validateUserRequest(request);
   } catch (err) {
+    console.error(err);
     if (err instanceof Error) {
       return new CorsInjectedApiResponse(`${err.name}: ${err.message}`, {
         status: 401,

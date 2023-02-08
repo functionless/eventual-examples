@@ -1,13 +1,13 @@
 import { currentUser, signUp } from "@/auth";
 import Layout from "@/layout";
-import { UserContext } from "@/user-context";
+import useUser from "@/use-user";
 import { Box, TextField, Button } from "@mui/material";
 import { useRouter } from "next/router";
 import { ChangeEvent, useCallback, useContext, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useUser({ redirectTo: "/", redirectIfFound: true });
   const [userName, setUserName] = useState<string | undefined>();
   const [email, setEmail] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
@@ -30,7 +30,7 @@ export default function Home() {
   }
 
   return (
-    <Layout mode="unauthed">
+    <Layout>
       <div>
         <Box
           component="form"

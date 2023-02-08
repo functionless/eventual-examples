@@ -1,9 +1,12 @@
+import { useRadioGroup } from "@mui/material";
 import {
   CognitoUserPool,
   CognitoUserAttribute,
   CognitoUser,
   AuthenticationDetails,
   UserData,
+  CognitoUserSession,
+  CognitoRefreshToken,
 } from "amazon-cognito-identity-js";
 
 let userPoolId = process.env.NEXT_PUBLIC_USER_POOL_ID;
@@ -103,4 +106,32 @@ export async function signOut() {
       user.signOut(resolve);
     });
   }
+}
+
+export function getSession() {
+  const user = currentUser();
+  return new Promise<CognitoUserSession>((resolve, reject) => {
+    user?.getSession(
+      (err: Error | null, session: CognitoUserSession | null) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(session!);
+      }
+    );
+  });
+}
+
+export function refreshSession(
+  user: CognitoUser,
+  refreshToken: CognitoRefreshToken
+) {
+  return new Promise((resolve, reject) => {
+    user.refreshSession(refreshToken, (err, result) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(result);
+    });
+  });
 }

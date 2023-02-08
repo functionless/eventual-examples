@@ -15,7 +15,7 @@ const cognitoClient = new CognitoIdentityProviderClient({});
  * @throws an {@link Error} if the user is not valid or authorized.
  */
 export async function validateUserRequest(request: ApiRequest) {
-  const auth = request.headers["Authorization"];
+  const auth = request.headers["authorization"];
   if (!auth) {
     throw new Error("Expected Authorization header to be preset.");
   }

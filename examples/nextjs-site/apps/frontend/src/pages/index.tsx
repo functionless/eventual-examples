@@ -6,8 +6,8 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
-import { UserContext } from "@/user-context";
 import Link from "next/link";
+import useUser from "@/use-user";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#1A2027",
@@ -18,15 +18,17 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   const [orders, setOrders] = useState<Order[]>([]);
-  const { user } = useContext(UserContext);
+  const { session } = useUser({ redirectTo: "/login" });
   useEffect(() => {
-    if (user) {
-      getOrders(user.getUsername()).then((orders) => setOrders(orders));
+    if (session) {
+      getOrders(session.getAccessToken().getJwtToken()).then((orders) =>
+        setOrders(orders)
+      );
     }
-  }, [user]);
+  }, [session]);
 
   return (
-    <Layout mode="authed">
+    <Layout>
       <div>
         <Stack spacing={1}>
           {orders.map((o) => (

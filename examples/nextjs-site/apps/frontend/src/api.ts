@@ -1,5 +1,5 @@
 import type {
-  CreateOrderRequest,
+  CreateOrderRequestWithoutUser,
   CreateOrderResult,
   Order,
 } from "@nextjs-site/core";
@@ -10,28 +10,41 @@ export function overrideApiDomain(domain: string) {
   apiDomain = domain;
 }
 
-export async function getOrders(user: string) {
-  const r = await fetch(`${apiDomain}/orders?userId=${user}`, {
+export async function getOrders(token: string) {
+  const r = await fetch(`${apiDomain}/orders`, {
     method: "GET",
+    headers: {
+      Authorization: `Basic ${token}`,
+    },
   });
   const j = await r.json();
   return j.orders;
 }
 
 export async function startOrder(
-  create: CreateOrderRequest
+  create: CreateOrderRequestWithoutUser,
+  token: string
 ): Promise<CreateOrderResult> {
   const r = await fetch(`${apiDomain}/orders`, {
     method: "POST",
     body: JSON.stringify(create),
+    headers: {
+      Authorization: `Basic ${token}`,
+    },
   });
   const j = await r.json();
   return j;
 }
 
-export async function getOrder(orderId: string): Promise<Order | undefined> {
+export async function getOrder(
+  orderId: string,
+  token: string
+): Promise<Order | undefined> {
   const r = await fetch(`${apiDomain}/orders/${orderId}`, {
     method: "GET",
+    headers: {
+      Authorization: `Basic ${token}`,
+    },
   });
   if (r.status === 401) {
     return undefined;

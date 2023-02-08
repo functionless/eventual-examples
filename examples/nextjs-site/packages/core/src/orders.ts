@@ -25,6 +25,11 @@ export interface Item {
 }
 
 export type CreateOrderRequest = Omit<Order, "id" | "status" | "timestamp">;
+/**
+ * Used by the API when there is an auth token present.
+ */
+export type CreateOrderRequestWithoutUser = Omit<CreateOrderRequest, "userId">;
+
 export interface CreateOrderResult {
   orderId: string;
 }

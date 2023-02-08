@@ -1,11 +1,9 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { _Menu } from "./menu";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useRouter } from "next/router";
-import { UserContext } from "./user-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,25 +13,7 @@ const darkTheme = createTheme({
   },
 });
 
-export default function Layout({
-  mode,
-  children,
-}: React.PropsWithChildren<{
-  mode: "authed" | "unauthed" | "any";
-}>) {
-  const { user } = useContext(UserContext);
-  const router = useRouter();
-  useEffect(() => {
-    if (!user && mode === "authed") {
-      router.push("/login");
-      return;
-    }
-    if (user && mode === "unauthed") {
-      router.push("/");
-      return;
-    }
-  }, [mode, user, router]);
-
+export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <>
       <Head>
