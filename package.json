@@ -1,15 +1,16 @@
 {
-  "name": "examples/monorepo",
+  "name": "example-monorepo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "tsc -b && turbo run build",
+    "build": "tsc -b && pnpm -r build",
     "watch": "tsc -b -w"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "@types/jest": "^29.4.0",
     "husky": "^8.0.2",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "turbo": "^1.7.4"
   }
 }

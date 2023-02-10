@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@eventual/core": "^0.15.2",
-    "@nextjs-site/core": "workspace:^",
-    "@nextjs-site/events": "workspace:^"
+    "@nextjs-site/core": "workspace:^"
   },
   "devDependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.262.0",
