@@ -1,0 +1,46 @@
+{
+  "name": "@nextjs-site/service",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "@eventual/core": "^0.15.2",
+    "@nextjs-site/core": "workspace:^",
+    "@nextjs-site/events": "workspace:^"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.262.0",
+    "@aws-sdk/client-dynamodb": "^3.262.0",
+    "@aws-sdk/lib-dynamodb": "^3.262.0",
+    "@aws-sdk/smithy-client": "^3.261.0",
+    "@aws-sdk/types": "^3.257.0",
+    "@eventual/testing": "^0.15.2",
+    "esbuild": "^0.16.14",
+    "jest": "^29",
+    "ts-jest": "^29",
+    "typescript": "^4.9.4",
+    "ulidx": "^0.4.0"
+  },
+  "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.(t|j)sx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.test.json",
+          "useESM": true
+        }
+      ]
+    }
+  }
+}

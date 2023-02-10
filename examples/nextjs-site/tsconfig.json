@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "apps/service"
+    },
+    {
+      "path": "apps/service/tsconfig.test.json"
+    },
+    {
+      "path": "apps/frontend"
+    },
+    {
+      "path": "infra"
+    },
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/events"
+    }
+  ]
+}
