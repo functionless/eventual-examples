@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "outDir": "lib",
+    "rootDir": "src",
+    "module": "CommonJS",
+    "moduleResolution": "Node"
+  },
+  "references": [
+    {
+      "path": "../apps/patterns-sandbox"
+    }
+  ]
+}

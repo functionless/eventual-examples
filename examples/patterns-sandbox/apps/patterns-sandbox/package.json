@@ -1,0 +1,43 @@
+{
+  "name": "patterns-sandbox",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "@eventual/core": "^0.15.3",
+    "@patterns-sandbox/events": "workspace:^"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-eventbridge": "^3.267.0",
+    "@aws-sdk/client-sns": "^3.267.0",
+    "@aws-sdk/client-ses": "^3.267.0",
+    "@aws-sdk/client-dynamodb": "^3.267.0",
+    "@eventual/testing": "^0.15.3",
+    "esbuild": "^0.16.14",
+    "jest": "^29",
+    "ts-jest": "^29",
+    "typescript": "^4.9.4"
+  },
+  "jest": {
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "transform": {
+      "^.+\\.(t|j)sx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.test.json",
+          "useESM": true
+        }
+      ]
+    }
+  }
+}

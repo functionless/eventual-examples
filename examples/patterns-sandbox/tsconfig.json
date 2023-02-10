@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "apps/patterns-sandbox"
+    },
+    {
+      "path": "apps/patterns-sandbox/tsconfig.test.json"
+    },
+    {
+      "path": "infra"
+    },
+    {
+      "path": "packages/events"
+    }
+  ]
+}
