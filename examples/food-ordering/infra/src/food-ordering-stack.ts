@@ -52,9 +52,9 @@ export class FoodOrderingStack extends Stack {
 
     this.service = new Service<typeof FoodOrderingService>(
       this,
-      "nextjs-site",
+      "food-ordering",
       {
-        name: "nextjs-site",
+        name: "food-ordering",
         entry: require.resolve("@food-ordering/service"),
         environment: {
           TABLE_NAME: table.tableName,
@@ -65,23 +65,23 @@ export class FoodOrderingStack extends Stack {
     this.service.api.handlers.forEach((h) => table.grantReadWriteData(h));
     table.grantReadWriteData(this.service.activities.worker);
 
-    new CfnOutput(this, "nextjs-site-api-endpoint", {
-      exportName: "nextjs-site-api-endpoint",
+    new CfnOutput(this, "food-ordering-api-endpoint", {
+      exportName: "food-ordering-api-endpoint",
       value: this.service.api.gateway.url!,
     });
 
-    new CfnOutput(this, "nextjs-site-event-bus-arn", {
-      exportName: "nextjs-site-event-bus-arn",
+    new CfnOutput(this, "food-ordering-event-bus-arn", {
+      exportName: "food-ordering-event-bus-arn",
       value: this.service.events.bus.eventBusArn,
     });
 
-    new CfnOutput(this, "nextjs-site-user-pool-id", {
-      exportName: "nextjs-site-user-pool-id",
+    new CfnOutput(this, "food-ordering-user-pool-id", {
+      exportName: "food-ordering-user-pool-id",
       value: this.userPool.userPoolId,
     });
 
-    new CfnOutput(this, "nextjs-site-user-app-client-id", {
-      exportName: "nextjs-site-user-app-client-id",
+    new CfnOutput(this, "food-ordering-user-app-client-id", {
+      exportName: "food-ordering-user-app-client-id",
       value: this.userPoolClient.userPoolClientId,
     });
   }

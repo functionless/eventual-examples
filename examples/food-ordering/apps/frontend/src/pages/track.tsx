@@ -1,4 +1,3 @@
-import { foodOrderingService } from "@/food-ordering-client";
 import Layout from "@/layout";
 import useUser from "@/use-user";
 import { useInterval } from "@/utils";
@@ -21,6 +20,7 @@ import { Grid, Stack } from "@mui/material";
 import { Order, OrderStatus } from "@food-ordering/core";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
+import { useService } from "@/use-service";
 
 export default function Track() {
   const router = useRouter();
@@ -29,18 +29,12 @@ export default function Track() {
   const [pollDelay, setPollDelay] = useState<null | number>(1000);
   const [order, setOrder] = useState<Order | undefined>(undefined);
   const { session } = useUser({ redirectTo: "/login" });
-
-  const get = useCallback(() => {
+  const service = useService(session);
+  const get = useCallback(async () => {
     if (session && orderId && typeof orderId === "string") {
-      foodOrderingService.getOrder(orderId, {
-        headers: {
-          Authorization: `Basic ${session.getAccessToken().getJwtToken()}`,
-        }
-      }).then((order) =>
-        setOrder(order)
-      )
+      setOrder(await service.getOrder(orderId));
     }
-  }, [orderId, session]);
+  }, [orderId, session, service]);
 
   useInterval(get, pollDelay);
 

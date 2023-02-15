@@ -5,25 +5,45 @@ import {
   PasswordResetRequiredException,
   UserNotConfirmedException,
 } from "@aws-sdk/client-cognito-identity-provider";
-import { HttpRequest } from "@eventual/core";
+import {
+  HttpError,
+  HttpRequest,
+  HttpResponse,
+  MiddlewareInput,
+  MiddlewareOutput,
+} from "@eventual/core";
 
 const cognitoClient = new CognitoIdentityProviderClient({});
 
-/**
- * Validates a user and returns their information.
- *
- * @throws an {@link Error} if the user is not valid or authorized.
- */
-export async function validateUserRequest(request: HttpRequest) {
-  const auth = request.headers["authorization"];
+export interface AuthorizedContext {
+  user: User;
+}
+
+export async function authorized<In>({
+  request,
+  next,
+  context,
+}: MiddlewareInput<In>) {
+  const auth = request.headers.get("authorization");
   if (!auth) {
-    throw new Error("Expected Authorization header to be preset.");
+    throw new HttpError({
+      code: 401,
+      message: "Expected Authorization header to be preset.",
+    });
   }
   const [prefix, token] = auth.split(" ");
   if (prefix?.toLowerCase() !== "basic") {
-    throw new Error("Token is not valid, must be in the form 'Basic [token]'.");
+    throw new HttpError({
+      code: 400,
+      message: "Token is not valid, must be in the form 'Basic [token]'.",
+    });
   }
-  return validateUser(token);
+  const user = await validateUser(token);
+
+  return next({
+    ...context,
+    user,
+  });
 }
 
 export async function validateUser(token: string): Promise<User> {
@@ -42,11 +62,20 @@ export async function validateUser(token: string): Promise<User> {
     };
   } catch (err) {
     if (err instanceof NotAuthorizedException) {
-      throw new Error("User is not authorized!");
+      throw new HttpError({
+        code: 401,
+        message: "User is not authorized!",
+      });
     } else if (err instanceof UserNotConfirmedException) {
-      throw new Error("User is not confirmed!");
+      throw new HttpError({
+        code: 401,
+        message: "User is not confirmed!",
+      });
     } else if (err instanceof PasswordResetRequiredException) {
-      throw new Error("User must reset password!");
+      throw new HttpError({
+        code: 401,
+        message: "User must reset password!",
+      });
     }
 
     throw err;

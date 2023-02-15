@@ -6,9 +6,9 @@
     },
     {
       "path": "examples/lambda-test-runner"
-    },    
+    },
     {
-      "path": "examples/nextjs-site"
+      "path": "examples/food-ordering"
     }
   ]
 }

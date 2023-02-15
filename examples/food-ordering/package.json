@@ -12,7 +12,7 @@
     "publish:cf": "./scripts/publish-cf.sh"
   },
   "devDependencies": {
-    "@eventual/cli": "^0.16.0",
+    "@eventual/cli": "^0.18.1",
     "@tsconfig/node16": "^1",
     "@types/jest": "^29",
     "@types/node": "^16",

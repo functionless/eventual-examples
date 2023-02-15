@@ -3,7 +3,7 @@ import Layout from "@/layout";
 import useUser from "@/use-user";
 import { Box, TextField, Button } from "@mui/material";
 import { useRouter } from "next/router";
-import { ChangeEvent, useCallback, useContext, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 export default function Home() {
   const router = useRouter();

@@ -1,4 +1,3 @@
-import { overrideApiDomain } from "@/food-ordering-client";
 import { overrideUserPoolIds } from "@/auth";
 import "@/styles/globals.css";
 import { UserProvider } from "@/use-user";
@@ -22,9 +21,11 @@ _App.getInitialProps = async (context: AppContext) => {
       await fetch("/env_override.json")
     ).json();
 
-    if (overrides.eventualApi) {
-      overrideApiDomain(overrides.eventualApi);
-    }
+    // why do we need this???
+    
+    // if (overrides.eventualApi) {
+    //   overrideApiDomain(overrides.eventualApi);
+    // }
     if (overrides.userPoolId || overrides.userPoolClientId) {
       overrideUserPoolIds(overrides.userPoolId, overrides.userPoolClientId);
     }

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Order } from "@food-ordering/core";
 import Layout from "@/layout";
-import { foodOrderingService } from "@/food-ordering-client";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { Grid } from "@mui/material";
 import Link from "next/link";
 import useUser from "@/use-user";
+import { useService } from "@/use-service";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#1A2027",
@@ -19,13 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Home() {
   const [orders, setOrders] = useState<Order[]>([]);
   const { session } = useUser({ redirectTo: "/login" });
+  const service = useService(session);
+
   useEffect(() => {
     if (session) {
-      foodOrderingService.listOrders(undefined, {
-        headers: {
-          Authorization: `Basic ${session.getAccessToken().getJwtToken()}`,
-        }
-      }).then((orders) =>
+      service.listOrders(undefined).then((orders) =>
         setOrders(orders)
       )
     }

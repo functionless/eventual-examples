@@ -1,5 +1,5 @@
-import { foodOrderingService, } from "@/food-ordering-client";
 import Layout from "@/layout";
+import { useService } from "@/use-service";
 import useUser from "@/use-user";
 import { Box, Button } from "@mui/material";
 import { useRouter } from "next/router";
@@ -8,27 +8,22 @@ import { useCallback } from "react";
 export default function Home() {
   const router = useRouter();
   const { session } = useUser({ redirectTo: "/login" });
-  const start = useCallback(() => {
-    if (session) {
+  const service = useService(session);
 
-      foodOrderingService.createOrder(
+  const start = useCallback(async () => {
+    if (session) {
+      const order = await service.createOrder(
         {
           address: "somewhere",
           items: [],
           store: "there",
           userId: "",
         },
-        {
-          headers: {
-            Authorization: `Basic ${session.getAccessToken().getJwtToken()}`,
-          },
-        }
-      ).then(({ id }) => {
-        router.push("/track?orderId=" + id);
-      })
+      )
+      router.push("/track?orderId=" + order.id);
 
     }
-  }, [session, router]);
+  }, [session, service, router]);
 
   return (
     <Layout>

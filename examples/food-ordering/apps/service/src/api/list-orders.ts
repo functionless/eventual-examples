@@ -1,12 +1,12 @@
 import { QueryCommand } from "@aws-sdk/lib-dynamodb";
-import { command } from "@eventual/core";
+import { api, command } from "@eventual/core";
 import { dynamo } from "../util/clients.js";
 import { orderFromRecord, OrderRecord } from "../util/order-record.js";
 import { TABLE_NAME } from "../util/variables.js";
+import { privateAccess } from "./middleware/default.js";
 
-export const listOrders = command(
+export const listOrders = privateAccess.command(
   "listOrders",
-  // @ts-expect-error - we need middleware
   async (_: any, { user }) => {
     const { Items } = await dynamo.send(
       new QueryCommand({
@@ -16,7 +16,7 @@ export const listOrders = command(
         // newest first
         ScanIndexForward: false,
         ExpressionAttributeValues: {
-          ":userId": user.userId,
+          ":userId": user.username,
           ":pk": OrderRecord.partitionKey,
         },
         ConsistentRead: true,
