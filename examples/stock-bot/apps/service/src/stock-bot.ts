@@ -23,12 +23,15 @@ const RequestApprovalEvent = event(
 );
 
 // auto approval for the human request approval event.
-export const onApproval = RequestApprovalEvent.onEvent(async (event) => {
-  await requestApproval.sendActivitySuccess({
-    activityToken: event.token,
-    result: { approve: true },
-  });
-});
+export const onApproval = RequestApprovalEvent.onEvent(
+  "onApproval",
+  async (event) => {
+    await requestApproval.sendActivitySuccess({
+      activityToken: event.token,
+      result: { approve: true },
+    });
+  }
+);
 
 export const stockBot = workflow("stock-bot", async () => {
   const symbol = "tsla";

@@ -1,0 +1,27 @@
+{
+  "name": "nextjs-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -b",
+    "test": "NODE_OPTIONS=--experimental-vm-modules pnpm -r run test",
+    "watch": "tsc -b -w",
+    "synth": "tsc -b && pnpm --filter infra synth",
+    "deploy": "tsc -b && pnpm --filter infra run deploy",
+    "hotswap": "tsc -b && pnpm --filter infra run deploy --hotswap",
+    "publish:cf": "./scripts/publish-cf.sh"
+  },
+  "devDependencies": {
+    "@eventual/cli": "^0.21.0",
+    "@tsconfig/node16": "^1",
+    "@types/jest": "^29",
+    "@types/node": "^16",
+    "esbuild": "^0.16.14",
+    "typescript": "^4.9.4",
+    "wrangler": "^2.9.0",
+    "zod": "^3.20.2"
+  },
+  "dependencies": {
+    "@eventual/aws-cdk": "^0.21.0"
+  }
+}
