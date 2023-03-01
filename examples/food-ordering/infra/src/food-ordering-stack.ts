@@ -8,7 +8,6 @@ import {
   Table,
 } from "aws-cdk-lib/aws-dynamodb";
 import { Construct } from "constructs";
-
 import type * as FoodOrderingService from "@food-ordering/service";
 import { CorsHttpMethod } from "@aws-cdk/aws-apigatewayv2-alpha";
 

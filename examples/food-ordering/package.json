@@ -22,6 +22,6 @@
     "zod": "^3.20.2"
   },
   "dependencies": {
-    "@eventual/aws-cdk": "^0.20.4"
+    "@eventual/aws-cdk": "^0.21.0"
   }
 }
