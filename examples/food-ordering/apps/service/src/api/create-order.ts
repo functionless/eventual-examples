@@ -1,5 +1,4 @@
 import { PutCommand } from "@aws-sdk/lib-dynamodb";
-import { api } from "@eventual/core";
 import { CreateOrderRequest, Order } from "@food-ordering/core";
 import { ulid } from "ulidx";
 import { dynamo } from "../util/clients.js";
@@ -10,10 +9,10 @@ import { privateAccess } from "./middleware/default.js";
 
 export const createOrder = privateAccess.command(
   "createOrder",
-  {},
   async (orderRequest: CreateOrderRequest, { user }) => {
     const order: Order = {
       ...orderRequest,
+      userId: user.username,
       id: ulid(),
       status: "CREATED",
       timestamp: new Date().toISOString(),
@@ -23,7 +22,6 @@ export const createOrder = privateAccess.command(
       ...order,
       pk: OrderRecord.partitionKey,
       sk: OrderRecord.sortKey(order.id),
-      userId: user.username,
       // the sort key we will use to order user records by timestamp
       user_time: OrderRecord.userTime(order.userId, order.timestamp),
     };
@@ -44,9 +42,3 @@ export const createOrder = privateAccess.command(
     return order;
   }
 );
-
-function isValidOrderRequest(
-  maybeOrder: any
-): maybeOrder is CreateOrderRequest {
-  return true;
-}

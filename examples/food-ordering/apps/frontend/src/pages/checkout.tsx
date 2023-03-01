@@ -12,16 +12,12 @@ export default function Home() {
 
   const start = useCallback(async () => {
     if (session) {
-      const order = await service.createOrder(
-        {
-          address: "somewhere",
-          items: [],
-          store: "there",
-          userId: "",
-        },
-      )
+      const order = await service.createOrder({
+        address: "somewhere",
+        items: [],
+        store: "there",
+      });
       router.push("/track?orderId=" + order.id);
-
     }
   }, [session, service, router]);
 

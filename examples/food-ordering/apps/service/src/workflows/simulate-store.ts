@@ -6,7 +6,7 @@ import { processOrder } from "./process-order.js";
 export const simulateStore = workflow(
   "simulateStore",
   async ({ orderId }: { orderId: string }) => {
-    const orderExecutionId = `${processOrder.workflowName}/${orderId}`;
+    const orderExecutionId = `${processOrder.name}/${orderId}`;
 
     // store gets the order and accepts it
     storeStatusUpdate.sendSignal(orderExecutionId, {

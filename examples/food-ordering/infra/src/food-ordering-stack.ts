@@ -1,20 +1,21 @@
-import { Construct } from "constructs";
-import { CfnOutput, Stack, StackProps, RemovalPolicy } from "aws-cdk-lib";
+import { Service } from "@eventual/aws-cdk";
+import { CfnOutput, RemovalPolicy, Stack, StackProps } from "aws-cdk-lib";
+import { IUserPool, IUserPoolClient, UserPool } from "aws-cdk-lib/aws-cognito";
 import {
   AttributeType,
-  Table,
   BillingMode,
   ProjectionType,
+  Table,
 } from "aws-cdk-lib/aws-dynamodb";
-import { IUserPool, IUserPoolClient, UserPool } from "aws-cdk-lib/aws-cognito";
-import { Service } from "@eventual/aws-cdk";
+import { Construct } from "constructs";
 
 import type * as FoodOrderingService from "@food-ordering/service";
+import { CorsHttpMethod } from "@aws-cdk/aws-apigatewayv2-alpha";
 
 export interface FoodOrderingStackProps extends StackProps {}
 
 export class FoodOrderingStack extends Stack {
-  public readonly service: Service;
+  public readonly service: Service<typeof FoodOrderingService>;
   public readonly userPool: IUserPool;
   public readonly userPoolClient: IUserPoolClient;
 
@@ -59,20 +60,26 @@ export class FoodOrderingStack extends Stack {
         environment: {
           TABLE_NAME: table.tableName,
         },
+        cors: {
+          allowHeaders: ["authorization", "content-type"],
+          // TODO: Change this for prod!
+          allowOrigins: ["*"],
+          allowMethods: [CorsHttpMethod.ANY],
+        },
       }
     );
 
-    this.service.api.handlers.forEach((h) => table.grantReadWriteData(h));
-    table.grantReadWriteData(this.service.activities.worker);
+    table.grantReadWriteData(this.service.commandsPrincipal);
+    table.grantReadWriteData(this.service.activitiesPrincipal);
 
     new CfnOutput(this, "food-ordering-api-endpoint", {
       exportName: "food-ordering-api-endpoint",
-      value: this.service.api.gateway.url!,
+      value: this.service.gateway.url!,
     });
 
     new CfnOutput(this, "food-ordering-event-bus-arn", {
       exportName: "food-ordering-event-bus-arn",
-      value: this.service.events.bus.eventBusArn,
+      value: this.service.bus.eventBusArn,
     });
 
     new CfnOutput(this, "food-ordering-user-pool-id", {

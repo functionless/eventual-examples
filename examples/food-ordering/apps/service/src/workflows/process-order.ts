@@ -1,9 +1,6 @@
 import { activity, condition, workflow } from "@eventual/core";
 import type { OrderStatus } from "@food-ordering/core";
-import {
-  updateOrderStatus,
-  updateOrderStatusRecord,
-} from "../api/update-order-status.js";
+import { updateOrderStatusRecord } from "../api/update-order-status.js";
 import { orderComplete } from "../events/order-complete.js";
 import { orderPending } from "../events/order-pending.js";
 import { orderReadyForPickup } from "../events/order-ready-for-pickup.js";
@@ -72,13 +69,13 @@ export const processOrder = workflow(
 
     async function updateOrderStatus(status: OrderStatus) {
       orderStatus = status;
-      return updateOrderStatusActivity(orderId, status);
+      return updateOrderStatusActivity({ orderId, orderStatus: status });
     }
   }
 );
 
 const updateOrderStatusActivity = activity(
   "updateOrderStatus",
-  (orderId: string, orderStatus: OrderStatus) =>
+  ({ orderId, orderStatus }: { orderId: string; orderStatus: OrderStatus }) =>
     updateOrderStatusRecord(orderId, orderStatus)
 );

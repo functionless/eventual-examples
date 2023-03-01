@@ -5,7 +5,7 @@ import { processOrder } from "./process-order.js";
 export const simulateDriver = workflow(
   "mockDriver",
   async ({ orderId }: { orderId: string }) => {
-    const orderExecutionId = `${processOrder.workflowName}/${orderId}`;
+    const orderExecutionId = `${processOrder.name}/${orderId}`;
 
     // the driver picks up the order
     driverStatusUpdate.sendSignal(orderExecutionId, {

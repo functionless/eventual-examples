@@ -1,5 +1,4 @@
 import { QueryCommand } from "@aws-sdk/lib-dynamodb";
-import { api, command } from "@eventual/core";
 import { dynamo } from "../util/clients.js";
 import { orderFromRecord, OrderRecord } from "../util/order-record.js";
 import { TABLE_NAME } from "../util/variables.js";

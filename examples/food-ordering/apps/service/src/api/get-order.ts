@@ -1,10 +1,9 @@
 import { GetCommand } from "@aws-sdk/lib-dynamodb";
-import { api, command, HttpError } from "@eventual/core";
+import { HttpError } from "@eventual/core";
+import type { Order } from "@food-ordering/core";
 import { dynamo } from "../util/clients.js";
 import { orderFromRecord, OrderRecord } from "../util/order-record.js";
 import { TABLE_NAME } from "../util/variables.js";
-import { authorized } from "./middleware/auth.js";
-import type { Order } from "@food-ordering/core";
 import { privateAccess } from "./middleware/default.js";
 /**
  * Gets the record for an {@link Order} by its ID.

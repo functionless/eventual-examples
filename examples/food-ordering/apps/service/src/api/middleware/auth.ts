@@ -5,13 +5,7 @@ import {
   PasswordResetRequiredException,
   UserNotConfirmedException,
 } from "@aws-sdk/client-cognito-identity-provider";
-import {
-  HttpError,
-  HttpRequest,
-  HttpResponse,
-  MiddlewareInput,
-  MiddlewareOutput,
-} from "@eventual/core";
+import { HttpError, MiddlewareInput } from "@eventual/core";
 
 const cognitoClient = new CognitoIdentityProviderClient({});
 

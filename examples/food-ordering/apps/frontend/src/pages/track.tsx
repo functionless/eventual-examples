@@ -1,6 +1,8 @@
 import Layout from "@/layout";
+import { useService } from "@/use-service";
 import useUser from "@/use-user";
 import { useInterval } from "@/utils";
+import { Order, OrderStatus } from "@food-ordering/core";
 import Check from "@mui/icons-material/Check";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import DoneAll from "@mui/icons-material/DoneAll";
@@ -17,10 +19,8 @@ import {
   TimelineSeparator,
 } from "@mui/lab";
 import { Grid, Stack } from "@mui/material";
-import { Order, OrderStatus } from "@food-ordering/core";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
-import { useService } from "@/use-service";
 
 export default function Track() {
   const router = useRouter();

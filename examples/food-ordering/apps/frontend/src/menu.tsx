@@ -1,3 +1,4 @@
+import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
@@ -12,10 +13,9 @@ import {
   Typography,
 } from "@mui/material";
 import Menu from "@mui/material/Menu";
-import { useContext, useState } from "react";
-import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { signOut } from "./auth";
 import useUser from "./use-user";
 

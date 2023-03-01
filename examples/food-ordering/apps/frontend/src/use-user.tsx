@@ -1,6 +1,6 @@
 import { CognitoUser, CognitoUserSession } from "amazon-cognito-identity-js";
 import { useRouter } from "next/router";
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { currentUser, getSession, refreshSession } from "./auth";
 
 export const UserContext = createContext<{

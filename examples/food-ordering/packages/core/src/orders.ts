@@ -24,7 +24,10 @@ export interface Item {
   details: string;
 }
 
-export type CreateOrderRequest = Omit<Order, "id" | "status" | "timestamp">;
+export type CreateOrderRequest = Omit<
+  Order,
+  "id" | "status" | "timestamp" | "userId"
+>;
 /**
  * Used by the API when there is an auth token present.
  */
