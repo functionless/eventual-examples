@@ -1,4 +1,4 @@
-import { activity, condition, workflow } from "@eventual/core";
+import { task, condition, workflow } from "@eventual/core";
 import type { OrderStatus } from "@food-ordering/core";
 import { updateOrderStatusRecord } from "../api/update-order-status.js";
 import { orderComplete } from "../events/order-complete.js";
@@ -15,7 +15,7 @@ export const processOrder = workflow(
     await updateOrderStatus("PENDING");
 
     // notify others about a new order, including the store
-    orderPending.publishEvents({ orderId });
+    orderPending.emit({ orderId });
 
     const storeHandler = storeStatusUpdate.onSignal(async ({ status }) => {
       // do not go backwards, only forwards, ignore backwards updates and unexpected statuses
@@ -35,13 +35,13 @@ export const processOrder = workflow(
           orderStatus === "PREPARING")
       ) {
         await updateOrderStatus(status);
-        // don't publish the event until the database has been updated
+        // don't emit the event until the database has been updated
       }
     });
 
     // wait for the READY_FOR_PICKUP status before continuing to the driver state
     await condition(() => orderStatus === "READY_FOR_PICKUP");
-    orderReadyForPickup.publishEvents({ orderId });
+    orderReadyForPickup.emit({ orderId });
     // not required, but makes it explicit we no longer expect these signals
     storeHandler.dispose();
 
@@ -59,7 +59,7 @@ export const processOrder = workflow(
 
     // wait for the DELIVERED status before continuing to the completed state
     await condition(() => orderStatus === "DELIVERED");
-    orderComplete.publishEvents({ orderId });
+    orderComplete.emit({ orderId });
     driverHandler.dispose();
 
     return {
@@ -69,12 +69,12 @@ export const processOrder = workflow(
 
     async function updateOrderStatus(status: OrderStatus) {
       orderStatus = status;
-      return updateOrderStatusActivity({ orderId, orderStatus: status });
+      return updateOrderStatusEntity({ orderId, orderStatus: status });
     }
   }
 );
 
-const updateOrderStatusActivity = activity(
+const updateOrderStatusEntity = task(
   "updateOrderStatus",
   ({ orderId, orderStatus }: { orderId: string; orderStatus: OrderStatus }) =>
     updateOrderStatusRecord(orderId, orderStatus)
