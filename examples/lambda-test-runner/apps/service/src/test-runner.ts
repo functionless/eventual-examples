@@ -1,4 +1,4 @@
-import { activity, workflow } from "@eventual/core";
+import { task, workflow } from "@eventual/core";
 import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 import equal from "fast-deep-equal";
 
@@ -80,25 +80,22 @@ export const testRunner = workflow(
   }
 );
 
-const runTestCase = activity(
-  "runTestCase",
-  async (target: Target, input: any) => {
-    const result = await lambda.send(
-      new InvokeCommand({
-        FunctionName: target.name,
-        Payload: Buffer.from(JSON.stringify(input)),
-      })
-    );
+const runTestCase = task("runTestCase", async (target: Target, input: any) => {
+  const result = await lambda.send(
+    new InvokeCommand({
+      FunctionName: target.name,
+      Payload: Buffer.from(JSON.stringify(input)),
+    })
+  );
 
-    return result.FunctionError
-      ? { error: result.FunctionError }
-      : {
-          result: result.Payload
-            ? JSON.parse(Buffer.from(result.Payload).toString("utf-8"))
-            : undefined,
-        };
-  }
-);
+  return result.FunctionError
+    ? { error: result.FunctionError }
+    : {
+        result: result.Payload
+          ? JSON.parse(Buffer.from(result.Payload).toString("utf-8"))
+          : undefined,
+      };
+});
 
 function partition<T>(batchSize: number, items: T[]): T[][] {
   return items.reduceRight(([current, ...batches]: T[][], item) => {
