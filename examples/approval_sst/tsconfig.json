@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/service"
+    }
+  ]
+}

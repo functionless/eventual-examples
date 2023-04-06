@@ -1,0 +1,5 @@
+{
+  "projectType": "aws-cdk",
+  "synth": "pnpm run build",
+  "deploy": "pnpm run deploy --require-approval never"
+}
