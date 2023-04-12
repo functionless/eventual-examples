@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@eventual/client": "^0.31.4",
+    "@eventual/client": "^0.32.0",
     "@food-ordering/core": "workspace:^",
     "@food-ordering/service": "workspace:^",
     "@mui/icons-material": "^5.11.0",
