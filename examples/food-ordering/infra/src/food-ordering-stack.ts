@@ -69,11 +69,11 @@ export class FoodOrderingStack extends Stack {
     );
 
     table.grantReadWriteData(this.service.commandsPrincipal);
-    table.grantReadWriteData(this.service.activitiesPrincipal);
+    table.grantReadWriteData(this.service.tasksPrincipal);
 
     new CfnOutput(this, "food-ordering-api-endpoint", {
       exportName: "food-ordering-api-endpoint",
-      value: this.service.gateway.url!,
+      value: this.service.gateway.apiEndpoint!,
     });
 
     new CfnOutput(this, "food-ordering-event-bus-arn", {
