@@ -1,14 +1,7 @@
-import {
-  task,
-  command,
-  event,
-  subscription,
-  workflow,
-  entity,
-} from "@eventual/core";
+import { extendApi } from "@anatine/zod-openapi";
+import { command, entity } from "@eventual/core";
 import { ulid } from "ulidx";
 import z from "zod";
-import { extendApi } from "@anatine/zod-openapi";
 
 const userNameSchema = extendApi(z.string(), {
   description: "The name of the user",
@@ -34,7 +27,7 @@ export const addTodo = command(
   "addTodo",
   {
     summary: "Add a todo to the list",
-    path: "/{username}/todos",
+    path: "/:username/todos",
     method: "POST",
     params: {
       username: "path",
@@ -61,7 +54,7 @@ export const deleteTodo = command(
   "deleteTodo",
   {
     description: "Delete a todo from the list",
-    path: "/{username}/todos/{todoId}",
+    path: "/:username/todos/:todoId",
     method: "DELETE",
     params: {
       username: "path",
@@ -78,7 +71,7 @@ export const getTodos = command(
   "getTodos",
   {
     summary: "Get the list of todos",
-    path: "/{username}/todos",
+    path: "/:username/todos",
     method: "GET",
     params: {
       username: "path",

@@ -10,7 +10,7 @@ export interface AIPluginManifest {
   description_for_human: string;
   auth: AIPluginAuth;
   api: AIPluginAPI;
-  logo_url: string;
+  logo_url?: string;
   contact_email: string;
   legal_info_url: string;
 }

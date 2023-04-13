@@ -4,3 +4,4 @@ defined within your service package.
 */
 export * from "./todo.js";
 export * from "./ai-plugin.js";
+export * from "./specification.js";

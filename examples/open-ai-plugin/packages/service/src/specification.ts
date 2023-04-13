@@ -1,12 +1,10 @@
-import { HttpResponse, api, command } from "@eventual/core";
-import { AIPluginManifest } from "./types.js";
+import { ApiSpecification, command, HttpResponse } from "@eventual/core";
+import type openapi from "openapi3-ts";
 
-export const aiPluginJson = command(
-  "specification",
-  { path: "/.well-known/ai-plugin.json", method: "GET" },
+export const specificationJson = command(
+  "specificationJson",
+  { path: "/.well-known/openapi.json", method: "GET" },
   () => {
-    return new HttpResponse(
-      JSON.stringify("TODO, get the spec from ApiSpecification")
-    );
+    return ApiSpecification.generate() satisfies openapi.OpenAPIObject;
   }
 );
