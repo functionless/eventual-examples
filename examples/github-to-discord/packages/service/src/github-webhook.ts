@@ -7,8 +7,6 @@ import type {
 } from "@octokit/webhooks-types";
 import {
   APIGuildCategoryChannel,
-  APIGuildTextChannel,
-  APIGuildVoiceChannel,
   APITextChannel,
   ChannelType,
 } from "discord-api-types/v10";

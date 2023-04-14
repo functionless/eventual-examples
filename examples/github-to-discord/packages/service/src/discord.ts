@@ -1,5 +1,5 @@
 import { AWSSecret } from "@eventual/aws-client";
-import { JsonSecret } from "@eventual/core";
+import { JsonSecret, PlainTextSecret } from "@eventual/core";
 import {
   ChannelType,
   RESTGetAPICurrentUserGuildsResult,
@@ -31,6 +31,7 @@ export async function DiscordRequest<Body, Result>(
   endpoint: string,
   options: { body?: Body } & Omit<RequestInit, "body">
 ) {
+  const token = await tokenSecret.getSecret();
   // append endpoint to root API URL
   const url = "https://discord.com/api/v10/" + endpoint;
   // Stringify payloads
@@ -40,7 +41,7 @@ export async function DiscordRequest<Body, Result>(
     ...options,
     headers: {
       ...options.headers,
-      Authorization: `Bot ${tokenSecret.getSecret()}`,
+      Authorization: `Bot ${token}`,
       "Content-Type": "application/json; charset=UTF-8",
       "User-Agent":
         "DiscordBot (https://github.com/eventual-examples/examples, 1.0.0)",
