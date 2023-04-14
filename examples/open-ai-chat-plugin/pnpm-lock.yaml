@@ -37,7 +37,7 @@ importers:
       '@eventual/aws-cdk':
         specifier: ^0.33.1
         version: 0.33.1(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.50.0)(constructs@10.0.0)(esbuild@0.16.14)
-      '@open-ai-plugin/service':
+      '@open-ai-chat-plugin/service':
         specifier: workspace:^
         version: link:../packages/service
       aws-cdk:

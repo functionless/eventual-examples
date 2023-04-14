@@ -21,6 +21,8 @@ const todoSchema = z.object({
   text: todoTextSchema,
 });
 
+interface Todo extends z.infer<typeof todoSchema> {}
+
 const todos = entity("todos", todoSchema);
 
 export const addTodo = command(
@@ -38,7 +40,7 @@ export const addTodo = command(
   async (request) => {
     const id = ulid();
 
-    const todo: z.infer<typeof todoSchema> = {
+    const todo: Todo = {
       text: request.text,
       username: request.username,
       todoId: id,

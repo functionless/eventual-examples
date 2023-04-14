@@ -1,5 +1,5 @@
 {
-  "name": "@open-ai-plugin/service",
+  "name": "@open-ai-chat-plugin/service",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",

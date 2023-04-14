@@ -4,11 +4,11 @@ import { Service } from "@eventual/aws-cdk";
 const app = new App();
 const stack = new Stack(app, "open-ai-plugin");
 
-import type * as open_ai_plugin from "@open-ai-plugin/service";
+import type * as open_ai_plugin from "@open-ai-chat-plugin/service";
 
 const service = new Service<typeof open_ai_plugin>(stack, "Service", {
   name: "open-ai-plugin",
-  entry: require.resolve("@open-ai-plugin/service"),
+  entry: require.resolve("@open-ai-chat-plugin/service"),
   openApi: {
     info: {
       title: "TODO Plugin",
