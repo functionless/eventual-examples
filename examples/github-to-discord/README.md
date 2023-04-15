@@ -1,71 +1,84 @@
-# Welcome to your Eventual Project
+# Github to Discord Example
 
-## Project Structure
-The following folder structure will be generated. 
+In this example, we'll write a custom message to a discord server when a new Tag or Branch is created in a GitHub repo.
+
+## Setup and Testing
+
+Note: For this example, we cannot use the [Eventual local development server](https://docs.eventual.ai/how-to/run-locally) because we need to consume real events from github.
+
+1. Deploy
+2. Discord Bot Setup
+3. Github Test Repo
+4. Test
+
+### Prerequisites
+
+1. AWS Account
+2. `aws` CLI
+3. `aws` CLI is configured
+4. Discord Account
+5. Github Account
+6. Github Repo that you own (can be empty)
+7. `git` CLI installed locally
+
+### Deploy to AWS
+
+First, deploy the service to AWS by running:
+
 ```bash
-├──infra # an AWS CDK application that deploys the repo's infrastructure
-├──packages
-    ├──service # the NPM package containing the my-service business logic
+$ pnpm run deploy --require-approval never
 ```
 
-### `infra`
+Note: if you want to deploy to a different profile, make sure you provide it with the `--deploy` flag.
 
-This is where you control what infrastructure is deployed with your Service, for example adding DynamoDB Tables, SQS Queues, or other stateful Resources.
+### Discord Bot Setup
 
-### `packages/service`
+Follow the bot setup (step 1) [here](https://discord.com/developers/docs/getting-started#step-1-creating-an-app).
 
-This is where you add business logic such as APIs, Event handlers, Workflows and Tasks.
+#### Token Secret
 
-## Deployed Infrastructure
+We need to make the bot token accessible to our service.
 
-After deploying to AWS, you'll have a single stack named `github-to-discord` containing your Service. Take a look at the structure using the Resources view in CloudFormation. Here, you can find a list of all the Lambda Functions and other Resources that come with a Service.
+1. Find the token generated above (or create a new one)
+2. Navigate to the AWS Secret Manager
+3. Find the secret created during the deployment, should be called `discordbotsecret` with some numbers after it.
+4. Set the token as the string value with quotes around it. ex: `"[your bot token]"`.
 
-See the [Service documentation](https://docs.eventual.ai/reference/service) for more information.
+#### Install Bot
 
-## Scripts
+Ensure you give the app `bot` permissions with `Send Messages` and `Manage Channels` scopes.
 
-The root `package.json` contains some scripts for your convenience.
+Invite the bot into a discord server that you can write to.
 
-### Build
+### Github Test Repo
 
-The `build` script compiles all TypeScript (`.ts`) files in each package's `src/` directory and emits the compiled output in the corresponding `lib/` folder.
+Now we need to configure one or more github repos that will send events to our service.
 
-```
-pnpm build
-```
+Run `pnpm eventual show service` to get the `API Gateway`. You'll need this later.
+
+Navigate to a github repo that you can push to, or create a new one.
+
+In the repo: 
+1. Go to `settings` > `webhooks`. Create a new webhook. 
+2. Set the `url` to `[API Gateway]/webhooks/gh` - This is the command url created by the eventual service.
+3. Change the format to `application/json`
+4. Choose to select specific events to send and pick only `Branch or tag creation`.
+5. Save
 
 ### Test
 
-The `test` script runs `jest` in all sub-packages. Check out the packages/service package for example tests.
+Now the service is all setup. To review, you have an Eventual Service with one webhook/command, a discord bot, and a github repo that writes publishes new tag and branch creation to your service.
 
-```
-pnpm test
-```
+To test, we just need to push tags to the repo.
 
-### Watch
+Go to your guthub repo locally or clone the repo locally.
 
-The `watch` script run the typescript compiler in the background and re-compiles `.ts` files whenever they are changed.
-```
-pnpm watch
-```
+Run:
 
-### Synth
-
-The `synth` script synthesizes the CDK application in the `infra/` package. 
-```
-pnpm synth
+```bash
+git tag -a testTag -m "I am a test tag"
+git push --tags
 ```
 
-### Deploy
+You should quickly see a new channel and message in your discord server that the bot was installed into.
 
-The `deploy` script synthesizes and deploys the CDK application in the `infra/` package to AWS.
-```
-pnpm run deploy
-```
-
-### Hotswap
-
-The `hotswap` script synthesizes and deploys the CDK application in the `infra/` package to AWS using `cdk deploy --hotswap` which can bypass a slow CloudFormation deployment in cases where only the business logic in a Lambda Function has changed.
-```
-pnpm run deploy
-```

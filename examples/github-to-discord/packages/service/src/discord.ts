@@ -23,7 +23,6 @@ const tokenSecret = new JsonSecret<string>(
 /**
  * Bot needs
  *    Manage Channels
- *    Manage Messages
  *    Send Messages
  */
 
