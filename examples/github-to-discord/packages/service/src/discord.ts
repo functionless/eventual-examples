@@ -1,5 +1,5 @@
 import { AWSSecret } from "@eventual/aws-client";
-import { JsonSecret, PlainTextSecret } from "@eventual/core";
+import { JsonSecret } from "@eventual/core";
 import {
   ChannelType,
   RESTGetAPICurrentUserGuildsResult,
@@ -105,4 +105,28 @@ export async function createChannels(
       parent_id: parentId,
     },
   });
+}
+
+/**
+ * Discord channel names (not category names) must be lower case, numbers, or a dash.
+ * Dashes cannot lead or trail and cannot repeat without another character in between.
+ *
+ * Discord will do this mutation for us, but we want to:
+ * 1. predict the resulting name to be able to find it later
+ * 2. produce a more readable name than discord does.
+ *
+ * Formatting:
+ * 1. All lower case
+ * 2. All invalid characters are changed to dashes
+ * 3. Remove duplicate, leading, or trailing dashes
+ */
+export function formatChannelName(name: string) {
+  return (
+    name
+      .toLowerCase()
+      // all non lowercase or numbers to dash
+      .replace(/[^a-z0-9]/g, "-")
+      // remove leading, trailing, and duplicate dashes
+      .replace(/(^-*)|(-(?=-))|(-$)/g, "")
+  );
 }

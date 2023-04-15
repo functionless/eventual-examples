@@ -12,6 +12,7 @@ import {
 } from "discord-api-types/v10";
 import {
   createChannels,
+  formatChannelName,
   getChannels,
   getServers,
   sendDiscordMessage,
@@ -78,16 +79,19 @@ async function sendNewRepoResourceToServers(
           ChannelType.GuildCategory
         )) as APIGuildCategoryChannel;
       }
+      console.log(channels);
+      // format the repo name to a valid channel name
+      const channelName = formatChannelName(repositoryName);
       let repoChannel = channels.find(
         (s) =>
-          s.name === repositoryName &&
+          s.name === channelName &&
           s.type === ChannelType.GuildText &&
           s.parent_id === repoCategory?.id
       );
       if (!repoChannel) {
         repoChannel = (await createChannels(
           s.id,
-          repositoryName,
+          channelName,
           ChannelType.GuildText,
           repoCategory?.id
         )) as APITextChannel;
