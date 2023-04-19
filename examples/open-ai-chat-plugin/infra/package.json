@@ -1,0 +1,26 @@
+{
+  "name": "infra",
+  "version": "0.0.0",
+  "scripts": {
+    "synth": "cdk synth",
+    "deploy": "cdk deploy",
+    "test": "echo no-op"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.50.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-authorizers-alpha": "^2.50.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.50.0-alpha.0",
+    "@eventual/aws-cdk": "^0.33.1",
+    "@open-ai-chat-plugin/service": "workspace:^",
+    "aws-cdk": "^2.74.0",
+    "aws-cdk-lib": "^2.50.0",
+    "constructs": "^10",
+    "esbuild": "^0.16.14"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "aws-cdk": "^2.50.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
