@@ -10,7 +10,7 @@
     "@aws-cdk/aws-apigatewayv2-alpha": "2.63.2-alpha.0",
     "@aws-cdk/aws-apigatewayv2-authorizers-alpha": "2.63.2-alpha.0",
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.63.2-alpha.0",
-    "@eventual/aws-cdk": "^0.32.0",
+    "@eventual/aws-cdk": "^0.33.1",
     "@food-ordering/service": "workspace:^",
     "aws-cdk": "^2.66.1",
     "aws-cdk-lib": "^2.68.0",
