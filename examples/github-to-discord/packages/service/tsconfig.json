@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "DOM"
+    ],
+    "outDir": "lib",
+    "rootDir": "src",
+    "target": "ES2021"
+  }
+}

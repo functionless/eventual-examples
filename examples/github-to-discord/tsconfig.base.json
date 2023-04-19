@@ -1,0 +1,22 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "module": "esnext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "lib": [
+      "ES2022",
+      "WebWorker"
+    ],
+    "types": [
+      "@types/node",
+      "@types/jest"
+    ]
+  }
+}
