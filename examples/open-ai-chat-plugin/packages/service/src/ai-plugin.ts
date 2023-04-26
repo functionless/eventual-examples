@@ -1,4 +1,4 @@
-import { HttpResponse, api, command } from "@eventual/core";
+import { command } from "@eventual/core";
 import { AIPluginManifest } from "./types.js";
 
 export const aiPluginJson = command(
