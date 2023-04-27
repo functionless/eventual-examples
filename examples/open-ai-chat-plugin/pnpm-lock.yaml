@@ -86,7 +86,7 @@ importers:
         version: 1.12.0(openapi3-ts@3.2.0)(zod@3.21.4)
       '@eventual/core':
         specifier: ^0.33.1
-        version: 0.33.1
+        version: link:../../../../../eventual/packages/@eventual/core
       openapi3-ts:
         specifier: ^3
         version: 3.2.0

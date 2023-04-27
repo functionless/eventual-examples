@@ -16,8 +16,8 @@
     "constructs": "^10.1.272"
   },
   "devDependencies": {
-    "@eventual/aws-cdk": "^0.33.1",
-    "@eventual/cli": "^0.33.1",
+    "@eventual/aws-cdk": "^0.33.3",
+    "@eventual/cli": "^0.33.3",
     "@types/jest": "^29",
     "@types/node": "^16",
     "aws-cdk": "2.50.0",

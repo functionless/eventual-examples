@@ -23,10 +23,10 @@ I was able to get it to use all of the endpoints (GET todos, ADD todo, Delete To
 """
 
 ## Get TODOs
-# agent_chain.run("What TODO items are there using localhost:3111?")
+agent_chain.run("What TODO items are there?")
 
 ## Delete TODO
 # agent_chain.run("Can you mark the the buy groceries todo item as complete")
 
 ## Add TODO
-agent_chain.run("create a todo item")
+# agent_chain.run("create a todo item")
