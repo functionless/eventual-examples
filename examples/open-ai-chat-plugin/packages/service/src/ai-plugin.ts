@@ -10,9 +10,9 @@ export const aiPluginJson = command(
       name_for_human: "TODO Plugin",
       name_for_model: "todo",
       description_for_human:
-        "Plugin for managing a TODO list. You can add, remove and view your TODOs.",
+        "Plugin for managing TODO list. You can add, remove and view your TODOs.",
       description_for_model:
-        "Plugin for managing a TODO list. You can add, remove and view your TODOs.",
+        "Plugin for managing TODO list. You can add, remove and view your TODOs.",
       auth: {
         type: "none",
       },

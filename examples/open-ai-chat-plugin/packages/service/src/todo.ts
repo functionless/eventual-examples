@@ -55,7 +55,7 @@ export const addTodo = command(
 export const deleteTodo = command(
   "deleteTodo",
   {
-    description: "Delete a todo from the list",
+    description: "Delete a todo from the list, or mark it as completed",
     path: "/:username/todos/:todoId",
     method: "DELETE",
     params: {
