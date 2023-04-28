@@ -4,7 +4,7 @@ import { AIPluginManifest } from "./types.js";
 export const aiPluginJson = command(
   "aiPluginJson",
   { path: "/.well-known/ai-plugin.json", method: "GET" },
-  () => {
+  (_, { service: { serviceUrl } }) => {
     return {
       schema_version: "v1",
       name_for_human: "TODO Plugin",
@@ -18,7 +18,7 @@ export const aiPluginJson = command(
       },
       api: {
         type: "openapi",
-        url: "http://localhost:3111/.well-known/openapi.json",
+        url: `${serviceUrl}/.well-known/openapi.json`,
         is_user_authenticated: false,
       },
       // logo_url: "http://localhost:3111/logo.png",

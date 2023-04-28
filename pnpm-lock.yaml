@@ -35,11 +35,11 @@ importers:
         specifier: ^2.50.0-alpha.0
         version: 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)(esbuild@0.16.17)
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@18.16.1)(esbuild@0.16.17)(typescript@5.0.3)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@18.16.2)(esbuild@0.16.17)(typescript@5.0.3)
       '@tsconfig/node18':
         specifier: ^1
         version: 1.0.0
@@ -86,12 +86,12 @@ importers:
   examples/approval_sst/packages/service:
     dependencies:
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
     devDependencies:
       '@eventual/testing':
-        specifier: ^0.33.3
-        version: 0.33.3(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(esbuild@0.16.17)
       esbuild:
         specifier: ^0.16.14
         version: 0.16.17
@@ -108,12 +108,12 @@ importers:
   examples/food-ordering:
     dependencies:
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8)(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9)(esbuild@0.16.17)
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@16.18.11)(esbuild@0.16.17)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@16.18.11)(esbuild@0.16.17)(typescript@4.9.5)
       '@tsconfig/node16':
         specifier: ^1
         version: 1.0.3
@@ -145,8 +145,8 @@ importers:
         specifier: ^11.10.5
         version: 11.10.5(@babel/core@7.21.4)(@emotion/react@11.10.5)(@types/react@18.0.27)(react@18.2.0)
       '@eventual/client':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       '@food-ordering/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -202,8 +202,8 @@ importers:
   examples/food-ordering/apps/service:
     dependencies:
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       '@food-ordering/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -224,8 +224,8 @@ importers:
         specifier: ^3.257.0
         version: 3.267.0
       '@eventual/testing':
-        specifier: ^0.33.3
-        version: 0.33.3(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(esbuild@0.16.17)
       esbuild:
         specifier: ^0.16.14
         version: 0.16.17
@@ -254,8 +254,8 @@ importers:
         specifier: 2.63.2-alpha.0
         version: 2.63.2-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
       '@food-ordering/service':
         specifier: workspace:^
         version: link:../apps/service
@@ -297,8 +297,8 @@ importers:
   examples/github-to-discord:
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5)
       '@tsconfig/node18':
         specifier: ^1
         version: 1.0.0
@@ -327,8 +327,8 @@ importers:
         specifier: ^2.50.0-alpha.0
         version: 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
       '@github-to-discord/service':
         specifier: workspace:^
         version: link:../packages/service
@@ -358,15 +358,15 @@ importers:
   examples/github-to-discord/packages/service:
     dependencies:
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
     devDependencies:
       '@eventual/aws-client':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       '@eventual/testing':
-        specifier: ^0.33.3
-        version: 0.33.3(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(esbuild@0.16.17)
       '@octokit/webhooks-types':
         specifier: ^6.11.0
         version: 6.11.0
@@ -404,15 +404,15 @@ importers:
         specifier: ^3.254.0
         version: 3.264.0(@aws-sdk/client-dynamodb@3.264.0)(@aws-sdk/smithy-client@3.316.0)(@aws-sdk/types@3.310.0)
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       fast-deep-equal:
         specifier: ^3.1.3
         version: 3.1.3
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5)
       '@types/aws-lambda':
         specifier: ^8.10.108
         version: 8.10.110
@@ -441,8 +441,8 @@ importers:
   examples/lambda-test-runner/infra:
     dependencies:
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5)
       aws-cdk-lib:
         specifier: 2.68.0
         version: 2.68.0(constructs@10.1.272)
@@ -451,8 +451,8 @@ importers:
         version: 10.1.272
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5)
       '@types/jest':
         specifier: ^29
         version: 29.4.0
@@ -484,8 +484,8 @@ importers:
   examples/open-ai-chat-plugin:
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5)
       '@tsconfig/node18':
         specifier: ^1
         version: 1.0.0
@@ -514,8 +514,8 @@ importers:
         specifier: ^2.50.0-alpha.0
         version: 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17)
       '@open-ai-chat-plugin/service':
         specifier: workspace:^
         version: link:../packages/service
@@ -564,8 +564,8 @@ importers:
         specifier: ^1.12.0
         version: 1.12.0(openapi3-ts@3.2.0)(zod@3.21.4)
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       openapi3-ts:
         specifier: ^3
         version: 3.2.0
@@ -577,8 +577,8 @@ importers:
         version: 3.21.4
     devDependencies:
       '@eventual/testing':
-        specifier: ^0.33.3
-        version: 0.33.3(esbuild@0.16.17)
+        specifier: ^0.34.0
+        version: 0.34.0(esbuild@0.16.17)
       esbuild:
         specifier: ^0.16.14
         version: 0.16.17
@@ -595,8 +595,8 @@ importers:
   examples/stock-bot/apps/service:
     dependencies:
       '@eventual/core':
-        specifier: ^0.33.3
-        version: 0.33.3
+        specifier: ^0.34.0
+        version: 0.34.0
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -605,11 +605,11 @@ importers:
         version: 0.0.2(zod@3.21.4)
     devDependencies:
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5)
       '@eventual/compiler':
-        specifier: ^0.33.3
-        version: 0.33.3(esbuild@0.17.18)
+        specifier: ^0.34.0
+        version: 0.34.0(esbuild@0.17.18)
       '@types/aws-lambda':
         specifier: ^8.10.108
         version: 8.10.110
@@ -642,11 +642,11 @@ importers:
         version: 10.1.272
     devDependencies:
       '@eventual/aws-cdk':
-        specifier: ^0.33.3
-        version: 0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5)
       '@eventual/cli':
-        specifier: ^0.33.3
-        version: 0.33.3(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5)
+        specifier: ^0.34.0
+        version: 0.34.0(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5)
       '@types/jest':
         specifier: ^29
         version: 29.4.0
@@ -718,8 +718,8 @@ packages:
     resolution: {integrity: sha512-SSHH7tmzckqaHe3Yh1uVCWk/hWowfyw9Yf2Mt5z98IjLERk5gbaJvLk5wI/VgsoImgm9wCcKyHonugqJl7B5Sw==}
     dev: true
 
-  /@aws-cdk/asset-awscli-v1@2.2.153:
-    resolution: {integrity: sha512-t66eh2VexLotjGnWZbI3fh24Ohw6nR1k0PawSnfvHEmxXlKO5hmr/+7eIr3oXRPT3tPBTbsgp1Al+AlR3cWd1A==}
+  /@aws-cdk/asset-awscli-v1@2.2.154:
+    resolution: {integrity: sha512-sBL/l1gf7me3I5zSdpwKuDWJoimBngXgV9v/zHV4uEdek2iYbRAbZaO+Eti62dY7Pw2xU5ZUrPdXIMSOXyzy3Q==}
     dev: false
 
   /@aws-cdk/asset-awscli-v1@2.2.99:
@@ -732,8 +732,8 @@ packages:
     resolution: {integrity: sha512-41V1eB2Ufbz57h2VogZXPVnjqa/r4RKQ7Ahx2tvSbzrnrCqLq1mHXm4WVpuDpVp0YxHn/UQfBmo2hBakL9yG9Q==}
     dev: true
 
-  /@aws-cdk/asset-node-proxy-agent-v5@2.0.128:
-    resolution: {integrity: sha512-d3lTtX/19N9vwyh8Y1NVwmsmwro4YmyE3AoMO+XKFrtndCHc68N890yUGGvNE6R3zM+95yrQ6YPHCWZjR79S9Q==}
+  /@aws-cdk/asset-node-proxy-agent-v5@2.0.129:
+    resolution: {integrity: sha512-CVoB2u0wI0cK2JyWWiKLIYBMF+RUG1o5mHidF/lXtVSzvHFYPxAFjZVz9XYg2tZSMaV6QVNijy4Z6ljp9/tRhg==}
     dev: false
 
   /@aws-cdk/asset-node-proxy-agent-v5@2.0.79:
@@ -760,15 +760,15 @@ packages:
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
 
-  /@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.8):
+  /@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.9):
     resolution: {integrity: sha512-dttWDqy+nTg/fD9y0egvj7/zdnOVEo0qyGsep1RV+p16R3F4ObMKyPVIg15fz57tK//Gp/i1QgXsZaSqbcWHOg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       aws-cdk-lib: ^2.50.0
       constructs: ^10.0.0
     dependencies:
-      aws-cdk-lib: 2.77.0(constructs@10.2.8)
-      constructs: 10.2.8
+      aws-cdk-lib: 2.77.0(constructs@10.2.9)
+      constructs: 10.2.9
     dev: false
 
   /@aws-cdk/aws-apigatewayv2-alpha@2.62.2-alpha.0(aws-cdk-lib@2.62.2)(constructs@10.1.156):
@@ -818,7 +818,7 @@ packages:
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
 
-  /@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8):
+  /@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9):
     resolution: {integrity: sha512-lMXnSpUSOYtCxoAxauNkGJZLsKMonHgd9rzlFUK2zxE7aC1lVwb4qYX4X9WJdvIExkFOHSZQzOTKM6SZqusssw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -826,9 +826,9 @@ packages:
       aws-cdk-lib: ^2.50.0
       constructs: ^10.0.0
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.8)
-      aws-cdk-lib: 2.77.0(constructs@10.2.8)
-      constructs: 10.2.8
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.9)
+      aws-cdk-lib: 2.77.0(constructs@10.2.9)
+      constructs: 10.2.9
     dev: false
 
   /@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.62.2-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.62.2-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156):
@@ -882,7 +882,7 @@ packages:
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
 
-  /@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8):
+  /@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9):
     resolution: {integrity: sha512-XEhz4HsU0HtQJnbs9XSb/yPN/1EEYAOZthWRKyniS9IWeGruVjEhWndoXpu0S7w+M5Bni7D9wrCTkqTgmTEvlw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -890,9 +890,9 @@ packages:
       aws-cdk-lib: ^2.50.0
       constructs: ^10.0.0
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.8)
-      aws-cdk-lib: 2.77.0(constructs@10.2.8)
-      constructs: 10.2.8
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.9)
+      aws-cdk-lib: 2.77.0(constructs@10.2.9)
+      constructs: 10.2.9
     dev: false
 
   /@aws-cdk/aws-apigatewayv2-integrations-alpha@2.62.2-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.62.2-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156):
@@ -989,8 +989,8 @@ packages:
       '@aws-crypto/ie11-detection': 3.0.0
       '@aws-crypto/supports-web-crypto': 3.0.0
       '@aws-crypto/util': 3.0.0
-      '@aws-sdk/types': 3.257.0
-      '@aws-sdk/util-locate-window': 3.208.0
+      '@aws-sdk/types': 3.310.0
+      '@aws-sdk/util-locate-window': 3.310.0
       '@aws-sdk/util-utf8-browser': 3.259.0
       tslib: 1.14.1
 
@@ -1592,8 +1592,8 @@ packages:
       - aws-crt
     dev: true
 
-  /@aws-sdk/client-lambda@3.321.1:
-    resolution: {integrity: sha512-+to+MJi+PzEZodAxZnCjaFaULKHdTccHllptKB1OYl2T1Gz8TfUyxknUnh6TpY3LBH/r4hcmT/Zkenj5rwelwA==}
+  /@aws-sdk/client-lambda@3.322.0:
+    resolution: {integrity: sha512-nNyARMIxYDCWQIi/Az+/ZPEyxoECPafM8//GmcYDBBBl5CYcAetKN5vM1e3p9efr2njgP5vBTGU9EBaO45fYRQ==}
     engines: {node: '>=14.0.0'}
     dependencies:
       '@aws-crypto/sha256-browser': 3.0.0
@@ -5027,12 +5027,6 @@ packages:
     dependencies:
       tslib: 2.5.0
 
-  /@aws-sdk/util-locate-window@3.208.0:
-    resolution: {integrity: sha512-iua1A2+P7JJEDHVgvXrRJSvsnzG7stYSGQnBVphIUlemwl6nN5D+QrgbjECtrbxRz8asYFHSzhdhECqN+tFiBg==}
-    engines: {node: '>=14.0.0'}
-    dependencies:
-      tslib: 2.5.0
-
   /@aws-sdk/util-locate-window@3.310.0:
     resolution: {integrity: sha512-qo2t/vBTnoXpjKxlsC2e1gBrRm80M3bId27r0BRB2VniSSe7bL1mmzM+/HFtujm0iAxtPM+aLEflLJlJeDPg0w==}
     engines: {node: '>=14.0.0'}
@@ -6829,8 +6823,8 @@ packages:
       - supports-color
     dev: false
 
-  /@eventual/aws-cdk@0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)(esbuild@0.16.17):
-    resolution: {integrity: sha512-fyxchzmoRYCc6bVi7rpCxE5MhbqjWPyA5vNpRj/xSWxDq/tXQXQbefEa7q6wnWOTnmI3TFqaPD4uWIYnH/EwYA==}
+  /@eventual/aws-cdk@0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)(esbuild@0.16.17):
+    resolution: {integrity: sha512-goDxfrEqpiVmrggD8UAOQyc4DqPVKL6iEyI2n8kpbMCvsPwlrO5tWR0Y1yZ50eQrhbnqTNWSCj1XUym5z/R/jA==}
     peerDependencies:
       '@aws-cdk/aws-apigatewayv2-alpha': ^2.50.0-alpha.0
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': ^2.50.0-alpha.0
@@ -6842,11 +6836,11 @@ packages:
       '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.62.2)(constructs@10.1.156)
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)
       '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.62.2)(constructs@10.1.156)
-      '@eventual/aws-runtime': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
+      '@eventual/aws-runtime': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
       aws-cdk-lib: 2.62.2(constructs@10.1.156)
       constructs: 10.1.156
       esbuild: 0.16.17
@@ -6856,8 +6850,8 @@ packages:
       - aws-crt
     dev: true
 
-  /@eventual/aws-cdk@0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17):
-    resolution: {integrity: sha512-fyxchzmoRYCc6bVi7rpCxE5MhbqjWPyA5vNpRj/xSWxDq/tXQXQbefEa7q6wnWOTnmI3TFqaPD4uWIYnH/EwYA==}
+  /@eventual/aws-cdk@0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17):
+    resolution: {integrity: sha512-goDxfrEqpiVmrggD8UAOQyc4DqPVKL6iEyI2n8kpbMCvsPwlrO5tWR0Y1yZ50eQrhbnqTNWSCj1XUym5z/R/jA==}
     peerDependencies:
       '@aws-cdk/aws-apigatewayv2-alpha': ^2.50.0-alpha.0
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': ^2.50.0-alpha.0
@@ -6869,11 +6863,11 @@ packages:
       '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
-      '@eventual/aws-runtime': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
+      '@eventual/aws-runtime': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
       esbuild: 0.16.17
@@ -6883,8 +6877,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@eventual/aws-cdk@0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5):
-    resolution: {integrity: sha512-fyxchzmoRYCc6bVi7rpCxE5MhbqjWPyA5vNpRj/xSWxDq/tXQXQbefEa7q6wnWOTnmI3TFqaPD4uWIYnH/EwYA==}
+  /@eventual/aws-cdk@0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.17.5):
+    resolution: {integrity: sha512-goDxfrEqpiVmrggD8UAOQyc4DqPVKL6iEyI2n8kpbMCvsPwlrO5tWR0Y1yZ50eQrhbnqTNWSCj1XUym5z/R/jA==}
     peerDependencies:
       '@aws-cdk/aws-apigatewayv2-alpha': ^2.50.0-alpha.0
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': ^2.50.0-alpha.0
@@ -6896,11 +6890,11 @@ packages:
       '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
-      '@eventual/aws-runtime': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.17.5)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
+      '@eventual/aws-runtime': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.17.5)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
       esbuild: 0.17.5
@@ -6909,8 +6903,8 @@ packages:
       - '@swc/helpers'
       - aws-crt
 
-  /@eventual/aws-cdk@0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8)(esbuild@0.16.17):
-    resolution: {integrity: sha512-fyxchzmoRYCc6bVi7rpCxE5MhbqjWPyA5vNpRj/xSWxDq/tXQXQbefEa7q6wnWOTnmI3TFqaPD4uWIYnH/EwYA==}
+  /@eventual/aws-cdk@0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.50.0-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9)(esbuild@0.16.17):
+    resolution: {integrity: sha512-goDxfrEqpiVmrggD8UAOQyc4DqPVKL6iEyI2n8kpbMCvsPwlrO5tWR0Y1yZ50eQrhbnqTNWSCj1XUym5z/R/jA==}
     peerDependencies:
       '@aws-cdk/aws-apigatewayv2-alpha': ^2.50.0-alpha.0
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': ^2.50.0-alpha.0
@@ -6919,16 +6913,16 @@ packages:
       constructs: ^10.0.0
       esbuild: '>=0.16.x <1.0.0'
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.8)
-      '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8)
-      '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.8)
-      '@eventual/aws-runtime': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      aws-cdk-lib: 2.77.0(constructs@10.2.8)
-      constructs: 10.2.8
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.50.0-alpha.0(aws-cdk-lib@2.77.0)(constructs@10.2.9)
+      '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9)
+      '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.50.0-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.50.0-alpha.0)(aws-cdk-lib@2.77.0)(constructs@10.2.9)
+      '@eventual/aws-runtime': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      aws-cdk-lib: 2.77.0(constructs@10.2.9)
+      constructs: 10.2.9
       esbuild: 0.16.17
     transitivePeerDependencies:
       - '@aws-sdk/signature-v4-crt'
@@ -6936,8 +6930,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@eventual/aws-cdk@0.33.3(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17):
-    resolution: {integrity: sha512-fyxchzmoRYCc6bVi7rpCxE5MhbqjWPyA5vNpRj/xSWxDq/tXQXQbefEa7q6wnWOTnmI3TFqaPD4uWIYnH/EwYA==}
+  /@eventual/aws-cdk@0.34.0(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-authorizers-alpha@2.63.2-alpha.0)(@aws-cdk/aws-apigatewayv2-integrations-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)(esbuild@0.16.17):
+    resolution: {integrity: sha512-goDxfrEqpiVmrggD8UAOQyc4DqPVKL6iEyI2n8kpbMCvsPwlrO5tWR0Y1yZ50eQrhbnqTNWSCj1XUym5z/R/jA==}
     peerDependencies:
       '@aws-cdk/aws-apigatewayv2-alpha': ^2.50.0-alpha.0
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': ^2.50.0-alpha.0
@@ -6949,11 +6943,11 @@ packages:
       '@aws-cdk/aws-apigatewayv2-alpha': 2.63.2-alpha.0(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.63.2-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
       '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.63.2-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.63.2-alpha.0)(aws-cdk-lib@2.68.0)(constructs@10.1.272)
-      '@eventual/aws-runtime': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
+      '@eventual/aws-runtime': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
       aws-cdk-lib: 2.68.0(constructs@10.1.272)
       constructs: 10.1.272
       esbuild: 0.16.17
@@ -6963,8 +6957,8 @@ packages:
       - aws-crt
     dev: false
 
-  /@eventual/aws-client@0.33.3:
-    resolution: {integrity: sha512-teXx/zO2/cgMy52JubeqgN1Wkebi10pb0SI05k6PQ6wWhajoLxu/9mXg1j477EMI/kFz8JS4tUhAR1dsya8hGQ==}
+  /@eventual/aws-client@0.34.0:
+    resolution: {integrity: sha512-/uXWM2RqYn9XFJuHt12bgRhM0mvRn84wcWknmax0UkCue7Uradb2KN6nYi53we43cqxGMFtOFjc/A64bsNqHHw==}
     dependencies:
       '@aws-crypto/sha256-js': 2.0.2
       '@aws-sdk/client-secrets-manager': 3.321.1
@@ -6974,24 +6968,24 @@ packages:
       '@aws-sdk/protocol-http': 3.310.0
       '@aws-sdk/querystring-parser': 3.310.0
       '@aws-sdk/signature-v4': 3.310.0
-      '@eventual/client': 0.33.3
-      '@eventual/core': 0.33.3
+      '@eventual/client': 0.34.0
+      '@eventual/core': 0.34.0
     transitivePeerDependencies:
       - aws-crt
 
-  /@eventual/aws-runtime@0.33.3:
-    resolution: {integrity: sha512-6h2+YJ9xBCuUBozIZKAS6iX48F8MnWHOjE7n0GzCFRYalYUjK2ynv8YijA88M2iTF1P1IqBf9aLm0PLTxlHi6A==}
+  /@eventual/aws-runtime@0.34.0:
+    resolution: {integrity: sha512-K8pd+FVp5ju48w5QSS9JexQN/zYdQcG3fXUNBXSkhQTPKfAJehEeZtUUsx3bAXb4mHPaALMs4hAO7XKfEilefQ==}
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
       '@aws-sdk/client-dynamodb': 3.321.1
       '@aws-sdk/client-eventbridge': 3.321.1
-      '@aws-sdk/client-lambda': 3.321.1
+      '@aws-sdk/client-lambda': 3.322.0
       '@aws-sdk/client-s3': 3.321.1
       '@aws-sdk/client-scheduler': 3.321.1
       '@aws-sdk/client-sqs': 3.321.1
-      '@eventual/aws-client': 0.33.3
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
+      '@eventual/aws-client': 0.34.0
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
       aws-embedded-metrics: 4.1.0
       aws-lambda: 1.0.7
       ulidx: 0.3.0
@@ -7000,8 +6994,8 @@ packages:
       - '@aws-sdk/signature-v4-crt'
       - aws-crt
 
-  /@eventual/cli@0.33.3(@types/node@16.18.11)(esbuild@0.16.17)(typescript@4.9.5):
-    resolution: {integrity: sha512-aPc1X/EaSJgvLYfW5Dk6dxJQoQU0KDsfg8ufLVwf8ymHshqm/7Zp8Wzmi3nMOSnrApTibNqASdq7MT/8kuybMg==}
+  /@eventual/cli@0.34.0(@types/node@16.18.11)(esbuild@0.16.17)(typescript@4.9.5):
+    resolution: {integrity: sha512-cLb0jUYOVT/5BkIqmXx8UvMb0wY2crmEwPqMas+G20YpT1B1FabikyEFARZ7xnKQGXW2yhJie/Unrea6gVM63Q==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
@@ -7010,13 +7004,13 @@ packages:
       '@aws-sdk/config-resolver': 3.310.0
       '@aws-sdk/node-config-provider': 3.310.0
       '@aws-sdk/types': 3.310.0
-      '@eventual/aws-client': 0.33.3
-      '@eventual/client': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      '@eventual/timeline': 0.33.3(esbuild@0.16.17)
+      '@eventual/aws-client': 0.34.0
+      '@eventual/client': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      '@eventual/timeline': 0.34.0(esbuild@0.16.17)
       chalk: 5.2.0
       cli-table3: 0.6.3
       express: 4.18.2
@@ -7028,7 +7022,7 @@ packages:
       serve-static: 1.15.0
       ts-node: 10.9.1(@types/node@16.18.11)(typescript@4.9.5)
       vite: 3.2.6(@types/node@16.18.11)
-      yargs: 17.7.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -7046,8 +7040,8 @@ packages:
       - typescript
     dev: true
 
-  /@eventual/cli@0.33.3(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5):
-    resolution: {integrity: sha512-aPc1X/EaSJgvLYfW5Dk6dxJQoQU0KDsfg8ufLVwf8ymHshqm/7Zp8Wzmi3nMOSnrApTibNqASdq7MT/8kuybMg==}
+  /@eventual/cli@0.34.0(@types/node@16.18.11)(esbuild@0.17.18)(typescript@4.9.5):
+    resolution: {integrity: sha512-cLb0jUYOVT/5BkIqmXx8UvMb0wY2crmEwPqMas+G20YpT1B1FabikyEFARZ7xnKQGXW2yhJie/Unrea6gVM63Q==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
@@ -7056,13 +7050,13 @@ packages:
       '@aws-sdk/config-resolver': 3.310.0
       '@aws-sdk/node-config-provider': 3.310.0
       '@aws-sdk/types': 3.310.0
-      '@eventual/aws-client': 0.33.3
-      '@eventual/client': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.17.18)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      '@eventual/timeline': 0.33.3(esbuild@0.17.18)
+      '@eventual/aws-client': 0.34.0
+      '@eventual/client': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.17.18)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      '@eventual/timeline': 0.34.0(esbuild@0.17.18)
       chalk: 5.2.0
       cli-table3: 0.6.3
       express: 4.18.2
@@ -7074,7 +7068,7 @@ packages:
       serve-static: 1.15.0
       ts-node: 10.9.1(@types/node@16.18.11)(typescript@4.9.5)
       vite: 3.2.6(@types/node@16.18.11)
-      yargs: 17.7.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -7092,8 +7086,8 @@ packages:
       - typescript
     dev: true
 
-  /@eventual/cli@0.33.3(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5):
-    resolution: {integrity: sha512-aPc1X/EaSJgvLYfW5Dk6dxJQoQU0KDsfg8ufLVwf8ymHshqm/7Zp8Wzmi3nMOSnrApTibNqASdq7MT/8kuybMg==}
+  /@eventual/cli@0.34.0(@types/node@16.18.11)(esbuild@0.17.5)(typescript@4.9.5):
+    resolution: {integrity: sha512-cLb0jUYOVT/5BkIqmXx8UvMb0wY2crmEwPqMas+G20YpT1B1FabikyEFARZ7xnKQGXW2yhJie/Unrea6gVM63Q==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
@@ -7102,13 +7096,13 @@ packages:
       '@aws-sdk/config-resolver': 3.310.0
       '@aws-sdk/node-config-provider': 3.310.0
       '@aws-sdk/types': 3.310.0
-      '@eventual/aws-client': 0.33.3
-      '@eventual/client': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.17.5)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      '@eventual/timeline': 0.33.3(esbuild@0.17.5)
+      '@eventual/aws-client': 0.34.0
+      '@eventual/client': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.17.5)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      '@eventual/timeline': 0.34.0(esbuild@0.17.5)
       chalk: 5.2.0
       cli-table3: 0.6.3
       express: 4.18.2
@@ -7120,7 +7114,7 @@ packages:
       serve-static: 1.15.0
       ts-node: 10.9.1(@types/node@16.18.11)(typescript@4.9.5)
       vite: 3.2.6(@types/node@16.18.11)
-      yargs: 17.7.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -7138,8 +7132,8 @@ packages:
       - typescript
     dev: true
 
-  /@eventual/cli@0.33.3(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5):
-    resolution: {integrity: sha512-aPc1X/EaSJgvLYfW5Dk6dxJQoQU0KDsfg8ufLVwf8ymHshqm/7Zp8Wzmi3nMOSnrApTibNqASdq7MT/8kuybMg==}
+  /@eventual/cli@0.34.0(@types/node@18.15.11)(esbuild@0.16.17)(typescript@4.9.5):
+    resolution: {integrity: sha512-cLb0jUYOVT/5BkIqmXx8UvMb0wY2crmEwPqMas+G20YpT1B1FabikyEFARZ7xnKQGXW2yhJie/Unrea6gVM63Q==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
@@ -7148,13 +7142,13 @@ packages:
       '@aws-sdk/config-resolver': 3.310.0
       '@aws-sdk/node-config-provider': 3.310.0
       '@aws-sdk/types': 3.310.0
-      '@eventual/aws-client': 0.33.3
-      '@eventual/client': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      '@eventual/timeline': 0.33.3(esbuild@0.16.17)
+      '@eventual/aws-client': 0.34.0
+      '@eventual/client': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      '@eventual/timeline': 0.34.0(esbuild@0.16.17)
       chalk: 5.2.0
       cli-table3: 0.6.3
       express: 4.18.2
@@ -7166,7 +7160,7 @@ packages:
       serve-static: 1.15.0
       ts-node: 10.9.1(@types/node@18.15.11)(typescript@4.9.5)
       vite: 3.2.6(@types/node@18.15.11)
-      yargs: 17.7.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -7184,8 +7178,8 @@ packages:
       - typescript
     dev: true
 
-  /@eventual/cli@0.33.3(@types/node@18.16.1)(esbuild@0.16.17)(typescript@5.0.3):
-    resolution: {integrity: sha512-aPc1X/EaSJgvLYfW5Dk6dxJQoQU0KDsfg8ufLVwf8ymHshqm/7Zp8Wzmi3nMOSnrApTibNqASdq7MT/8kuybMg==}
+  /@eventual/cli@0.34.0(@types/node@18.16.2)(esbuild@0.16.17)(typescript@5.0.3):
+    resolution: {integrity: sha512-cLb0jUYOVT/5BkIqmXx8UvMb0wY2crmEwPqMas+G20YpT1B1FabikyEFARZ7xnKQGXW2yhJie/Unrea6gVM63Q==}
     hasBin: true
     dependencies:
       '@aws-sdk/client-cloudwatch-logs': 3.321.1
@@ -7194,13 +7188,13 @@ packages:
       '@aws-sdk/config-resolver': 3.310.0
       '@aws-sdk/node-config-provider': 3.310.0
       '@aws-sdk/types': 3.310.0
-      '@eventual/aws-client': 0.33.3
-      '@eventual/client': 0.33.3
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
-      '@eventual/project': 0.33.3
-      '@eventual/timeline': 0.33.3(esbuild@0.16.17)
+      '@eventual/aws-client': 0.34.0
+      '@eventual/client': 0.34.0
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
+      '@eventual/project': 0.34.0
+      '@eventual/timeline': 0.34.0(esbuild@0.16.17)
       chalk: 5.2.0
       cli-table3: 0.6.3
       express: 4.18.2
@@ -7210,9 +7204,9 @@ packages:
       open: 8.4.2
       ora: 6.3.0
       serve-static: 1.15.0
-      ts-node: 10.9.1(@types/node@18.16.1)(typescript@5.0.3)
-      vite: 3.2.6(@types/node@18.16.1)
-      yargs: 17.7.1
+      ts-node: 10.9.1(@types/node@18.16.2)(typescript@5.0.3)
+      vite: 3.2.6(@types/node@18.16.2)
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -7230,19 +7224,19 @@ packages:
       - typescript
     dev: true
 
-  /@eventual/client@0.33.3:
-    resolution: {integrity: sha512-ivDdxvn+7vVyIYE3pRfiiBfxobtxLQC22WwtSftCG3JV3+4KS0u85azLSLfu8IeMI1eo3q+E9f12S3nMQsAEuQ==}
+  /@eventual/client@0.34.0:
+    resolution: {integrity: sha512-826eXg+byrh2p/nSWY6Nw9+8QuJVKvIUr1U3cMEZOJe7jPzsoOvn5c3WZls2RXjQtHb4uDO1ZZ+qUIQ3InW0dA==}
     dependencies:
-      '@eventual/core': 0.33.3
+      '@eventual/core': 0.34.0
 
-  /@eventual/compiler@0.33.3(esbuild@0.16.17):
-    resolution: {integrity: sha512-zTVMBtfeby1ZgwI5KlJHNjv4THSkJivsTsV4CSQBOsTMRGqMLgdLDq7yPLM8fhvM5ZgkqrH9Wv+UJyksZgdvag==}
+  /@eventual/compiler@0.34.0(esbuild@0.16.17):
+    resolution: {integrity: sha512-Bg6a3QMdHxpxciM3TMShbMa/aiRZssgCRN//3IMdZ3sjwOxAwNT9kvACc5dLYTGB+3kg43PeCt5Sy1dodF0Ekg==}
     hasBin: true
     peerDependencies:
       esbuild: '>=0.16.x <1.0.0'
     dependencies:
       '@anatine/zod-openapi': 1.12.1(openapi3-ts@3.2.0)(zod@3.21.4)
-      '@eventual/core': 0.33.3
+      '@eventual/core': 0.34.0
       '@swc/core': 1.3.55
       esbuild: 0.16.17
       esbuild-plugin-alias-path: 2.0.2(esbuild@0.16.17)
@@ -7251,14 +7245,14 @@ packages:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  /@eventual/compiler@0.33.3(esbuild@0.17.18):
-    resolution: {integrity: sha512-zTVMBtfeby1ZgwI5KlJHNjv4THSkJivsTsV4CSQBOsTMRGqMLgdLDq7yPLM8fhvM5ZgkqrH9Wv+UJyksZgdvag==}
+  /@eventual/compiler@0.34.0(esbuild@0.17.18):
+    resolution: {integrity: sha512-Bg6a3QMdHxpxciM3TMShbMa/aiRZssgCRN//3IMdZ3sjwOxAwNT9kvACc5dLYTGB+3kg43PeCt5Sy1dodF0Ekg==}
     hasBin: true
     peerDependencies:
       esbuild: '>=0.16.x <1.0.0'
     dependencies:
       '@anatine/zod-openapi': 1.12.1(openapi3-ts@3.2.0)(zod@3.21.4)
-      '@eventual/core': 0.33.3
+      '@eventual/core': 0.34.0
       '@swc/core': 1.3.55
       esbuild: 0.17.18
       esbuild-plugin-alias-path: 2.0.2(esbuild@0.17.18)
@@ -7268,14 +7262,14 @@ packages:
       - '@swc/helpers'
     dev: true
 
-  /@eventual/compiler@0.33.3(esbuild@0.17.5):
-    resolution: {integrity: sha512-zTVMBtfeby1ZgwI5KlJHNjv4THSkJivsTsV4CSQBOsTMRGqMLgdLDq7yPLM8fhvM5ZgkqrH9Wv+UJyksZgdvag==}
+  /@eventual/compiler@0.34.0(esbuild@0.17.5):
+    resolution: {integrity: sha512-Bg6a3QMdHxpxciM3TMShbMa/aiRZssgCRN//3IMdZ3sjwOxAwNT9kvACc5dLYTGB+3kg43PeCt5Sy1dodF0Ekg==}
     hasBin: true
     peerDependencies:
       esbuild: '>=0.16.x <1.0.0'
     dependencies:
       '@anatine/zod-openapi': 1.12.1(openapi3-ts@3.2.0)(zod@3.21.4)
-      '@eventual/core': 0.33.3
+      '@eventual/core': 0.34.0
       '@swc/core': 1.3.55
       esbuild: 0.17.5
       esbuild-plugin-alias-path: 2.0.2(esbuild@0.17.5)
@@ -7284,46 +7278,46 @@ packages:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  /@eventual/core-runtime@0.33.3:
-    resolution: {integrity: sha512-AMNy54eIMCe8TsEyfhqEEdM3e9uVSdhLalu0osbLLF6lhcCDU78dnV26jYVB709Pqr72XfgiKnRZAneUiBqlGw==}
+  /@eventual/core-runtime@0.34.0:
+    resolution: {integrity: sha512-f5bXIp5Le2NQfNYOGwgLRFCIZCLJCaO+CRb1m8Rm+toScjgl3xvgU7AKJQl7a6ZMA/JDOfJDT1AndI19022vkQ==}
     dependencies:
-      '@eventual/core': 0.33.3
+      '@eventual/core': 0.34.0
       heap-js: 2.2.0
       itty-router: 2.6.6
       ulidx: 0.3.0
       zod: 3.21.4
 
-  /@eventual/core@0.33.3:
-    resolution: {integrity: sha512-cEVmP1u2561SRGNQR4SUzRU9WI7KqNhBcxHlARLK9mHWHOioB6Ae9teF5zVbHkolAEL7BSU2754KK8txsXEU4Q==}
+  /@eventual/core@0.34.0:
+    resolution: {integrity: sha512-l9YZm9NCKZOTOXpCnz2sbeZ6BS+v6J3YBHA2p5aUrY+OJiaw49Iop1FVkiApZVtHQt209le9gPXpmLaRsCU+JQ==}
     dependencies:
       itty-router: 2.6.6
       openapi3-ts: 3.2.0
       ulidx: 0.3.0
       zod: 3.21.4
 
-  /@eventual/project@0.33.3:
-    resolution: {integrity: sha512-Ztt6tpgRULHXPdUPYN2qF577/fGPIcV2eyN9RN0i6HG0yqQYtvTr2WZWsDhRcBUmX8CvKxBVSwNh/0WxbM0Jcg==}
+  /@eventual/project@0.34.0:
+    resolution: {integrity: sha512-3X2qihNOK49pEeY0zzO1T3jJzUq//a+zD7eCmJQrF0YsTT/EchujeVtdoAhbaEL3OG+5h/M9bVeMT+YYm44iTA==}
     dependencies:
       inquirer: 8.2.5
 
-  /@eventual/testing@0.33.3(esbuild@0.16.17):
-    resolution: {integrity: sha512-Bk+eEx7he4axGm/n5Z0VDsQO/OcJsL840eg6kIpfs4Yz3DNybTt+vrkwnxYaHry8cTACeNvV4d9ud36lhoLcrw==}
+  /@eventual/testing@0.34.0(esbuild@0.16.17):
+    resolution: {integrity: sha512-oE0cuCq4dPTFxqsRnc9DA6kYXgWwvrWxEc8LtRtPNHqOOV1/MgLZsjH0t5cOuLvyan+9HME/kR2ywVoCVoqX2Q==}
     dependencies:
-      '@eventual/compiler': 0.33.3(esbuild@0.16.17)
-      '@eventual/core': 0.33.3
-      '@eventual/core-runtime': 0.33.3
+      '@eventual/compiler': 0.34.0(esbuild@0.16.17)
+      '@eventual/core': 0.34.0
+      '@eventual/core-runtime': 0.34.0
       ulidx: 0.3.0
     transitivePeerDependencies:
       - '@swc/helpers'
       - esbuild
     dev: true
 
-  /@eventual/timeline@0.33.3(esbuild@0.16.17):
-    resolution: {integrity: sha512-CAKfr8Bb4i2Gc7Bp/shWzKyY8Vt7f72b/sK/NUmc3K+I/zmqxHT23b9x05UtXl8BFUPTBSv7AOKMbXdCIkIb2Q==}
+  /@eventual/timeline@0.34.0(esbuild@0.16.17):
+    resolution: {integrity: sha512-oJ0s1jfUlUNMFZ140g7oWRXvhQ355PvY9nBf7umqQQmJXYg8zoZJBIjfzCBTUCZRwHpfxgypvtcdNWIzrHcjeA==}
     dependencies:
       '@esbuild-plugins/node-globals-polyfill': 0.1.1(esbuild@0.16.17)
-      '@eventual/client': 0.33.3
-      '@eventual/core': 0.33.3
+      '@eventual/client': 0.34.0
+      '@eventual/core': 0.34.0
       '@tanstack/react-query': 4.29.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7332,12 +7326,12 @@ packages:
       - react-native
     dev: true
 
-  /@eventual/timeline@0.33.3(esbuild@0.17.18):
-    resolution: {integrity: sha512-CAKfr8Bb4i2Gc7Bp/shWzKyY8Vt7f72b/sK/NUmc3K+I/zmqxHT23b9x05UtXl8BFUPTBSv7AOKMbXdCIkIb2Q==}
+  /@eventual/timeline@0.34.0(esbuild@0.17.18):
+    resolution: {integrity: sha512-oJ0s1jfUlUNMFZ140g7oWRXvhQ355PvY9nBf7umqQQmJXYg8zoZJBIjfzCBTUCZRwHpfxgypvtcdNWIzrHcjeA==}
     dependencies:
       '@esbuild-plugins/node-globals-polyfill': 0.1.1(esbuild@0.17.18)
-      '@eventual/client': 0.33.3
-      '@eventual/core': 0.33.3
+      '@eventual/client': 0.34.0
+      '@eventual/core': 0.34.0
       '@tanstack/react-query': 4.29.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7346,12 +7340,12 @@ packages:
       - react-native
     dev: true
 
-  /@eventual/timeline@0.33.3(esbuild@0.17.5):
-    resolution: {integrity: sha512-CAKfr8Bb4i2Gc7Bp/shWzKyY8Vt7f72b/sK/NUmc3K+I/zmqxHT23b9x05UtXl8BFUPTBSv7AOKMbXdCIkIb2Q==}
+  /@eventual/timeline@0.34.0(esbuild@0.17.5):
+    resolution: {integrity: sha512-oJ0s1jfUlUNMFZ140g7oWRXvhQ355PvY9nBf7umqQQmJXYg8zoZJBIjfzCBTUCZRwHpfxgypvtcdNWIzrHcjeA==}
     dependencies:
       '@esbuild-plugins/node-globals-polyfill': 0.1.1(esbuild@0.17.5)
-      '@eventual/client': 0.33.3
-      '@eventual/core': 0.33.3
+      '@eventual/client': 0.34.0
+      '@eventual/core': 0.34.0
       '@tanstack/react-query': 4.29.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -8513,8 +8507,8 @@ packages:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
 
-  /@types/node@18.16.1:
-    resolution: {integrity: sha512-DZxSZWXxFfOlx7k7Rv4LAyiMroaxa3Ly/7OOzZO8cBNho0YzAi4qlbrx8W27JGqG57IgR/6J7r+nOJWw6kcvZA==}
+  /@types/node@18.16.2:
+    resolution: {integrity: sha512-GQW/JL/5Fz/0I8RpeBG9lKp0+aNcXEaVL71c0D2Q0QHDTFvlYKT7an0onCUXj85anv7b4/WesqdfchLc0jtsCg==}
     dev: true
 
   /@types/parse-json@4.0.0:
@@ -9206,16 +9200,16 @@ packages:
       - semver
       - yaml
 
-  /aws-cdk-lib@2.77.0(constructs@10.2.8):
+  /aws-cdk-lib@2.77.0(constructs@10.2.9):
     resolution: {integrity: sha512-T0GUFHBY1B+LkyGk1Df5E1PXwHa7BqvafD4pGvpwWqu8Mu9s/i0kp8YJu6xY//hEC5R8O7V6bfyQJ0S9pUqwQg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       constructs: ^10.0.0
     dependencies:
-      '@aws-cdk/asset-awscli-v1': 2.2.153
+      '@aws-cdk/asset-awscli-v1': 2.2.154
       '@aws-cdk/asset-kubectl-v20': 2.1.1
-      '@aws-cdk/asset-node-proxy-agent-v5': 2.0.128
-      constructs: 10.2.8
+      '@aws-cdk/asset-node-proxy-agent-v5': 2.0.129
+      constructs: 10.2.9
     dev: false
     bundledDependencies:
       - '@balena/dockerignore'
@@ -9297,7 +9291,7 @@ packages:
     resolution: {integrity: sha512-9GNFMRrEMG5y3Jvv+V4azWvc+qNWdWLTjDdhf/zgMlz8haaaLWv0xeAIWxz9PuWUBawsVxy0zZotjCdR3Xq+2w==}
     hasBin: true
     dependencies:
-      aws-sdk: 2.1366.0
+      aws-sdk: 2.1367.0
       commander: 3.0.2
       js-yaml: 3.14.1
       watchpack: 2.4.0
@@ -9318,24 +9312,8 @@ packages:
       xml2js: 0.4.19
     dev: true
 
-  /aws-sdk@2.1356.0:
-    resolution: {integrity: sha512-At7/tPJrAxlSIuyv/KpjgoNZSVp4y6nmrfcf89xe4KTR3+SRXnX4X0646bkCyU58jjSguqPjSJopsAFK16jdjg==}
-    engines: {node: '>= 10.0.0'}
-    dependencies:
-      buffer: 4.9.2
-      events: 1.1.1
-      ieee754: 1.1.13
-      jmespath: 0.16.0
-      querystring: 0.2.0
-      sax: 1.2.1
-      url: 0.10.3
-      util: 0.12.5
-      uuid: 8.0.0
-      xml2js: 0.5.0
-    dev: true
-
-  /aws-sdk@2.1366.0:
-    resolution: {integrity: sha512-tS7y18KHH0eq43I8WJsxVBpwOMY45FSsu6a+A/6k0bMrE4zhd1fzhPN+5coNIODaGxnqVvgw9guLg3AOe4SpaA==}
+  /aws-sdk@2.1367.0:
+    resolution: {integrity: sha512-ZlN3iXazEVPwjmQzC1TfkRUPOKruF6RkAFnVz4hOPjQQT91RYi2lCRWtipWk4ZoONBLX7gFLGUgIfiHjf/A+iA==}
     engines: {node: '>= 10.0.0'}
     dependencies:
       buffer: 4.9.2
@@ -9700,7 +9678,7 @@ packages:
       '@aws-cdk/cloud-assembly-schema': 2.62.2
       '@aws-cdk/cx-api': 2.62.2(@aws-cdk/cloud-assembly-schema@2.62.2)
       archiver: 5.3.1
-      aws-sdk: 2.1356.0
+      aws-sdk: 2.1351.0
       glob: 7.2.3
       mime: 2.6.0
       yargs: 16.2.0
@@ -10007,8 +9985,8 @@ packages:
     resolution: {integrity: sha512-Rn5nwQoWjsVTeUOXqPsXE//uwd2Aj6Ln59/PTNIgyCUVuRMgRGTuKNT5w4cDauJWYnwsE+z15v2AvcHA85RToA==}
     engines: {node: '>= 14.17.0'}
 
-  /constructs@10.2.8:
-    resolution: {integrity: sha512-3Dr4htAd64LRn6+ts5cDm1ZijE/2rDJnaPRD9FQi3CGTfZIm0nA9ZzJDOEwBRFfU8A6wmQvZ3B56p4XLM6B4hg==}
+  /constructs@10.2.9:
+    resolution: {integrity: sha512-0cv/d46sdxNuGBvZfCKBRQ5/iFdmqNZMvhh5F3j+M4mdqJryKsEmV0Bd490gQjLxb8gy+F/Pne0oCXzs9E3bIw==}
     engines: {node: '>= 14.17.0'}
     dev: false
 
@@ -12381,7 +12359,7 @@ packages:
       jest-util: 29.4.1
       jest-validate: 29.4.1
       prompts: 2.4.2
-      yargs: 17.7.1
+      yargs: 17.7.2
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -15445,7 +15423,7 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.16.1)(typescript@5.0.3):
+  /ts-node@10.9.1(@types/node@18.16.2)(typescript@5.0.3):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -15464,7 +15442,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.16.1
+      '@types/node': 18.16.2
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -15916,7 +15894,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite@3.2.6(@types/node@18.16.1):
+  /vite@3.2.6(@types/node@18.16.2):
     resolution: {integrity: sha512-nTXTxYVvaQNLoW5BQ8PNNQ3lPia57gzsQU/Khv+JvzKPku8kNZL6NMUR/qwXhMG6E+g1idqEPanomJ+VZgixEg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -15941,7 +15919,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.16.1
+      '@types/node': 18.16.2
       esbuild: 0.15.18
       postcss: 8.4.23
       resolve: 1.22.2
@@ -16334,6 +16312,19 @@ packages:
 
   /yargs@17.7.1:
     resolution: {integrity: sha512-cwiTb08Xuv5fqF4AovYacTFNxk62th7LKJ6BL9IGUpTJrWoU7/7WdQGTP2SjKf1dUNBGzDd28p/Yfs/GI6JrLw==}
+    engines: {node: '>=12'}
+    dependencies:
+      cliui: 8.0.1
+      escalade: 3.1.1
+      get-caller-file: 2.0.5
+      require-directory: 2.1.1
+      string-width: 4.2.3
+      y18n: 5.0.8
+      yargs-parser: 21.1.1
+    dev: true
+
+  /yargs@17.7.2:
+    resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
     dependencies:
       cliui: 8.0.1
