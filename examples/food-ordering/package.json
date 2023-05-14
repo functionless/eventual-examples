@@ -12,7 +12,7 @@
     "publish:cf": "./scripts/publish-cf.sh"
   },
   "devDependencies": {
-    "@eventual/cli": "^0.34.0",
+    "@eventual/cli": "^0.37.2",
     "@tsconfig/node16": "^1",
     "@types/jest": "^29",
     "@types/node": "^16",
@@ -22,6 +22,6 @@
     "zod": "^3.21.4"
   },
   "dependencies": {
-    "@eventual/aws-cdk": "^0.34.0"
+    "@eventual/aws-cdk": "^0.37.2"
   }
 }

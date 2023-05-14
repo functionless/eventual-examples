@@ -9,6 +9,15 @@
     },
     {
       "path": "examples/food-ordering"
+    },
+    {
+      "path": "examples/approval-sst"
+    },
+    {
+      "path": "examples/github-to-discord"
+    },
+    {
+      "path": "examples/open-ai-chat-plugin"
     }
   ]
 }

@@ -9,11 +9,11 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@eventual/core": "^0.34.0"
+    "@eventual/core": "^0.37.2"
   },
   "devDependencies": {
-    "@eventual/aws-client": "^0.34.0",
-    "@eventual/testing": "^0.34.0",
+    "@eventual/aws-client": "^0.37.2",
+    "@eventual/testing": "^0.37.2",
     "@octokit/webhooks-types": "^6.11.0",
     "discord-api-types": "^0.37.38",
     "esbuild": "^0.16.14",

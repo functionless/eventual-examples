@@ -9,7 +9,7 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@eventual/core": "^0.34.0",
+    "@eventual/core": "^0.37.2",
     "@food-ordering/core": "workspace:^"
   },
   "devDependencies": {
@@ -18,7 +18,7 @@
     "@aws-sdk/lib-dynamodb": "^3.262.0",
     "@aws-sdk/smithy-client": "^3.261.0",
     "@aws-sdk/types": "^3.257.0",
-    "@eventual/testing": "^0.34.0",
+    "@eventual/testing": "^0.37.2",
     "esbuild": "^0.16.14",
     "jest": "^29",
     "ts-jest": "^29",
