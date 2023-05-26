@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/service"
+    },
+    {
+      "path": "packages/service/tsconfig.test.json"
+    },
+    {
+      "path": "infra"
+    }
+  ]
+}
